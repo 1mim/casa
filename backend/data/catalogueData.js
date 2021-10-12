@@ -1,0 +1,52 @@
+const catalogueDB = [
+    {
+        name: "Belyn",
+        type: "Upholstery",
+        price: 2995,
+        image: "https://i.ibb.co/jy6qr3f/Becyn.jpg",
+        description: "With voluptuous curves and perfect poise, Belyn exalts passion and fantasy as if you were in a burlesque show at Moulin Rouge. Let yourself be drawn by this flirtatious feeling of sensuality and a touch as smooth as silk.",
+        dimensionW: 140,
+        dimensionD: 85,
+        dimensionH: 75,
+        material: "Fabric",
+        countInStock: 10,
+    },
+    {
+        name: "Ila",
+        type: "Coffee Table",
+        price: 1790,
+        image: "https://i.ibb.co/ydSpJw2/Ila.jpg",
+        description: "Sensual curves and straight lines embody the perfect combination of beauty and danger, much like the Hollywood legends Bey and Jay. It is impossible to feel estranged with this piece which will attract you and never let go",
+        dimensionW: 160,
+        dimensionD: 70,
+        dimensionH: 35,
+        material: "Marble",
+        countInStock: 10,
+    },
+    {
+        name: "Pidori",
+        type: "Sideboard",
+        price: 3795,
+        image: "https://i.ibb.co/HXTYC8V/Pidori.jpg",
+        description: "Like its name suggests, Pidori sideboard is inspired by a wave of thought that is impossible to overlook when passing through the streets of Woodlands. In a more down to earth piece, clean lines and a certain absence of excessive ornamentation result in a harmony between design and function.",
+        dimensionW: 246,
+        dimensionD: 55,
+        dimensionH: 88,
+        material: "Solid Wood",
+        countInStock: 10,
+    },
+    {
+        name: "Sera",
+        type: "Couch",
+        price: 2595,
+        image: "https://i.ibb.co/pwvM33H/Sera.jpg",
+        description: "Like a warm embrace, Sera round couch welcomes you to stay within and relax. An elevated homage to the golden age of mid-century design and organic architecture.",
+        dimensionW: 200,
+        dimensionD: 127,
+        dimensionH: 87,
+        material: "Fabric",
+        countInStock: 10,
+    }
+]
+
+module.exports = catalogueDB;
