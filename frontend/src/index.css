@@ -52,3 +52,18 @@ body {
 .p-1 {
   padding: 1rem;
 }
+
+img {
+  /* border-radius: 1.5rem 1.5rem 0rem 0rem; */
+}
+img.small {
+  max-width: 5rem;
+  width: 100%;
+}
+img.medium {
+  max-width: 29rem;
+  width: 100%;
+}
+img.large {
+  width: 100%;
+}
