@@ -1,10 +1,12 @@
-import logo from './logo.svg';
 import './App.css';
+import NavBar from './components/NavBar';
+import ProductCatalogue from './components/product_list/ProductCatalogue';
 
 function App() {
   return (
     <div className="App">
-      <h1>Test Sikit</h1>
+      <header><NavBar /></header>
+      <ProductCatalogue />
     </div>
   );
 }
