@@ -1,2 +1,2 @@
 # casa
-Excluse Furniture and Home Interior
+Exclusive Furniture and Home Interior
