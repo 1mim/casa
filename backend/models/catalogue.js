@@ -11,6 +11,8 @@ const catalogueSchema = new mongoose.Schema({
     dimensionH: {type: Number, require: true},
     material: {type: String, require: true},
     countInStock: {type: Number, require: true},
+}, {
+    timestamps: true
 })
 
 const Catalogue = mongoose.model('catalogue', catalogueSchema);

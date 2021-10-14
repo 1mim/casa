@@ -7,10 +7,17 @@ const userRouter = require('./router/userRouter');
 connectDB();
 
 const app = express();
-
 app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
+//api endpoints
 app.use('/catalogues', cataloguesRouter)
-app.use('/users', userRouter)
+app.use('/user', userRouter)
+
+// error catcher
+app.use((err, req, res, next) => {
+    res.status(500).send({ message: err.message });
+});
 
 const PORT = process.env.PORT || 5000;
 
