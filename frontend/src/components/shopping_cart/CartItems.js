@@ -19,8 +19,8 @@ const CartItems = ({ item, removeFromCartHandler, dispatch }) => {
                 ${item.price}
             </div>
             <div>
-                <button onClick={removeFromCartHandler}>
-                x</button>
+                <button type="button" onClick={() => removeFromCartHandler(item.product)}>
+                delete</button>
             </div>
         </div>
     )
