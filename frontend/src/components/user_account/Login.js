@@ -48,7 +48,7 @@ const Login = (props) => {
                     <button className="primary" type="submit">Sign In</button>
                 </div>
                 <div><label />
-                    Don't have an account? <Link to='/register'>Create one now.</Link>
+                    Don't have an account? <Link to={`/register?redirect=${redirect}`}>Create one now.</Link>
                 </div>
             </form>
 
