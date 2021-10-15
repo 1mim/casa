@@ -133,3 +133,41 @@ li {
 .card-body > * {
   margin-bottom: 1rem;
 }
+
+.form {
+  max-width: 60rem;
+  margin: 0 auto;
+}
+.form > div {
+  display: flex;
+  flex-direction: column;
+  margin: 1rem;
+}
+.form label {
+  margin: 1rem 0;
+}
+
+/* Dropdown */
+.dropdown {
+  display: inline-block;
+  position: relative;
+}
+.dropdown-content {
+  position: absolute;
+  display: none;
+  right: 0;
+  min-width: 12rem;
+  padding: 1rem;
+  z-index: 1;
+  background-color: tan;
+  color: white;
+  transition: all 0.5s ease;
+
+  /* margin: 0; */
+  /* margin-top: 0.2rem; */
+  /* border-radius: 0.5rem; */
+}
+.dropdown:hover .dropdown-content {
+  display: block;
+  visibility: visible;
+}
