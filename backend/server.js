@@ -3,6 +3,7 @@ const express = require('express');
 const connectDB = require("./config/db");
 const cataloguesRouter = require('./router/catalogueRouter');
 const userRouter = require('./router/userRouter');
+const orderRouter = require('./router/orderRouter')
 
 connectDB();
 
@@ -13,6 +14,7 @@ app.use(express.urlencoded({ extended: true }));
 //api endpoints
 app.use('/catalogues', cataloguesRouter)
 app.use('/user', userRouter)
+app.use('/orders', orderRouter)
 
 // error catcher
 app.use((err, req, res, next) => {

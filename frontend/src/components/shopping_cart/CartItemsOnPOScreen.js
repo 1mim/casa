@@ -6,7 +6,7 @@ const CartItemsOnPOScreen = ({item}) => {
         <div className="row">
             <div><img src={item.image} alt={item.name} className="small" /></div>
             <div className="min-30"><Link to={`product/${item.product}`}>{item.name}</Link></div>
-            <div> {item.qty} x ${item.price} = ${item.qty * item.price}</div>
+            <div> {item.qty} x ${item.price.toFixed(2)} = ${(item.qty * item.price).toFixed(2)}</div>
         </div>
     )
 }
