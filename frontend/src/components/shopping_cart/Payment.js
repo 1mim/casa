@@ -4,6 +4,7 @@ import { savePaymentMethod } from '../redux/actions/cartActions';
 import CheckoutSteps from './CheckoutSteps'
 
 const Payment = (props) => {
+    const dispatch = useDispatch()
 
     const cart = useSelector(state => state.cart);
     const { shippingAddress } = cart;
@@ -11,8 +12,7 @@ const Payment = (props) => {
     if (!shippingAddress.address) {
         props.history.push('/shipping');
     }
-
-    const dispatch = useDispatch()
+   
     const [paymentMethod, setPaymentMethod] = useState('PayPal');
 
     const handleSubmit = (e) => {
