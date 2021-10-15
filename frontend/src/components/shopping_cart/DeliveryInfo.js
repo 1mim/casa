@@ -1,15 +1,23 @@
 import React, { useState } from 'react'
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { saveShippingAddress } from '../redux/actions/cartActions';
 import CheckoutSteps from './CheckoutSteps'
 
 const DeliveryInfo = (props) => {
+    const userLogin = useSelector(state => state.userLogin)
+    const { userInfo } = userLogin;
+    if (!userInfo) {
+        props.history.push('/login')
+    }
 
-    const [fullName, setFullName] = useState('');
-    const [address, setAddress] = useState('');
-    const [city, setCity] = useState('');
-    const [postalCode, setPostalCode] = useState('');
-    const [country, setCountry] = useState('');
+    const cart = useSelector(state => state.cart)
+    const { shippingAddress } = cart
+
+    const [fullName, setFullName] = useState(shippingAddress.fullName);
+    const [address, setAddress] = useState(shippingAddress.address);
+    const [city, setCity] = useState(shippingAddress.city);
+    const [postalCode, setPostalCode] = useState(shippingAddress.postalCode);
+    const [country, setCountry] = useState(shippingAddress.country);
 
     const dispatch = useDispatch()
 
