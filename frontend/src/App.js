@@ -6,6 +6,7 @@ import './App.css';
 import NavBar from './components/NavBar';
 import ProductCatalogue from './components/product_list/ProductCatalogue';
 import ProductDetail from './components/product_list/ProductDetail';
+import DeliveryInfo from './components/shopping_cart/DeliveryInfo';
 import ShoppingCart from './components/shopping_cart/ShoppingCart';
 import Login from './components/user_account/Login';
 import Register from './components/user_account/Register';
@@ -29,6 +30,7 @@ function App() {
             <Route path="/login" component={Login} />
             {/* <Route path="/login" render={(props) => <Login {...props} userInfo={userInfo} /> } /> */}
             <Route path="/register" component={Register} />
+            <Route path="/delivery" component={DeliveryInfo} />
       </Switch>
       </main>
       </div>

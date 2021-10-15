@@ -199,3 +199,15 @@ li {
   color: #20a020;
   background-color: #eeffe0;
 }
+
+/* checkout steps */
+
+.checkout-steps > div {
+  color: tan;
+  flex: 1;
+  padding: 1rem;
+}
+
+.checkout-steps > div.active {
+  font-weight: bold;
+}
