@@ -1,10 +1,8 @@
 import React from 'react'
+import ErrorMessage from '../modals/ErrorMessage'
+import LoadingSpinner from '../modals/LoadingSpinner'
 
-const CartPriceSummary = ({ cart, itemsPrice, totalPrice, shippingPrice, taxPrice }) => {
-    
-    const handlePlaceOrder = () => {
-// TODO: dispatch place order action 
-    }
+const CartPriceSummary = ({ cart, handlePlaceOrder, error, loading , itemsPrice, totalPrice, shippingPrice, taxPrice }) => {
     
     return (
         <div className="card card-body">
@@ -45,6 +43,9 @@ const CartPriceSummary = ({ cart, itemsPrice, totalPrice, shippingPrice, taxPric
                         Place Order
                     </button>
                 </li>
+                {loading && <LoadingSpinner />}
+                {error && <ErrorMessage variant="danger">{error}</ErrorMessage>}
+                
             </ul>
             
         </div>

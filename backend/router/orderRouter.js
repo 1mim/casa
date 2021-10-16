@@ -1,12 +1,13 @@
 const express = require('express');
+const expressAsyncHandler = require('express-async-handler');
 const router = express.Router();
 
 //import order schema from model
 const Order = require('../models/orderModel');
-const isAuth = require('../utils');
+const isAuth = require('../auth')
 
 // create/send order to database
-router.post('/', isAuth, async(req, res) => {
+router.post('/', isAuth, expressAsyncHandler(async(req, res) => {
     if (req.body.orderItems.length === 0) {
         res.status(400).send({ message: 'Cart is empty' });
     } else {
@@ -20,9 +21,11 @@ router.post('/', isAuth, async(req, res) => {
             totalPrice: req.body.totalPrice,
             user: req.user._id,
         });
-        const createdOrder = await order.save()
-        res.status(201).send({ message: 'New Order Created', order: createdOrder });
-    }
-})
+        const createdOrder = await order.save();
+        res.status(201)
+            .send({ message: 'New Order Created', order: createdOrder });
+     }
+    })
+)
 
 module.exports = router;

@@ -7,6 +7,7 @@ import NavBar from './components/NavBar';
 import ProductCatalogue from './components/product_list/ProductCatalogue';
 import ProductDetail from './components/product_list/ProductDetail';
 import DeliveryInfo from './components/shopping_cart/DeliveryInfo';
+import OrderConfirmed from './components/shopping_cart/OrderConfirmed';
 import Payment from './components/shopping_cart/Payment';
 import PlaceOrder from './components/shopping_cart/PlaceOrder';
 import ShoppingCart from './components/shopping_cart/ShoppingCart';
@@ -34,6 +35,7 @@ function App() {
             <Route path="/register" component={Register} />
             <Route path="/delivery" component={DeliveryInfo} />
             <Route path="/payment" component={Payment} />
+            {/* <Route path="/order/:id?" component={OrderConfirmed} /> */}
             <Route exact path="/placeorder" component={PlaceOrder} />
       </Switch>
       </main>

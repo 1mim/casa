@@ -1,22 +1,24 @@
-import React from 'react'
-import { useSelector } from 'react-redux'
+import React, { useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import ErrorMessage from '../modals/ErrorMessage';
+import LoadingSpinner from '../modals/LoadingSpinner';
+import { createOrder } from '../redux/actions/orderActions';
+import { ORDER_CREATE_RESET } from '../redux/constants/orderConstants';
 import CartItemsOnPOScreen from './CartItemsOnPOScreen';
-import CartPriceSummary from './CartPriceSummary';
+// import CartPriceSummary from './CartPriceSummary';
 import CheckoutSteps from './CheckoutSteps'
 
 const PlaceOrder = (props) => {
+
+    const dispatch = useDispatch()
 
     const cart = useSelector(state => state.cart);
     if (!cart.paymentMethod) {
         props.history.push('/payment')
     };
 
-    // const toPrice = (num) => Number(num.toFixed(2));
-
-    // cart.itemsPrice = toPrice(cart.cartItems.reduce((a, b) => a + b.qty * b.price, 0));
-    // cart.shippingPrice = cart.itemsPrice > 1000 ? toPrice(45) : toPrice(80);
-    // cart.taxPrice = cart.toPrice(0.15 * cart.itemsPrice);
-    // cart.totalPrice = cart.itemsPrice + cart.shippingAddress;
+    const orderCreate = useSelector(state => state.orderCreate);
+    const { loading, success, error, order } = orderCreate;
 
     const parseNumToInt = (num) => Number(num.toFixed(2));
 
@@ -24,6 +26,17 @@ const PlaceOrder = (props) => {
     cart.shippingPrice = cart.itemsPrice > 1000 ? parseNumToInt(45) : parseNumToInt(80);
     cart.taxPrice = parseNumToInt((0.07 * cart.itemsPrice));
     cart.totalPrice = cart.itemsPrice + cart.shippingPrice + cart.taxPrice;
+
+    const handlePlaceOrder = () => {
+        dispatch(createOrder({ ...cart, orderItems: cart.cartItems }));
+    }
+
+    useEffect(() => {
+        if (success) {
+            props.history.push(`/order/${order._id}`);
+            dispatch({ type: ORDER_CREATE_RESET });
+        }
+    }, [dispatch, order, props.history, success])
 
     return (
 
@@ -64,13 +77,60 @@ const PlaceOrder = (props) => {
 
                 </div>
                 <div className="col-1">
-                    <CartPriceSummary
+                    {/* <CartPriceSummary
                         cart={cart}
                         itemsPrice={cart.itemsPrice}
                         shippingPrice={cart.shippingPrice}
                         taxPrice={cart.taxPrice}
                         totalPrice={cart.totalPrice}
-                    />
+                        handlePlaceOrder={handlePlaceOrder}
+                        loading={loading}
+                        error={error}
+                    /> */}
+                            <div className="card card-body">
+            <ul>
+                <li>
+                    <h2>Order Summary</h2>
+                </li>
+                <li>
+                    <div className="row">
+                        <div>Items</div>
+                        <div>${cart.itemsPrice.toFixed(2)}</div>
+                    </div>
+                </li>
+                <li>
+                    <div className="row">
+                        <div>Delivery Cost</div>
+                        <div>${cart.shippingPrice.toFixed(2)}</div>
+                    </div>
+                </li>
+                <li>
+                    <div className="row">
+                        <div>Taxes</div>
+                        <div>${cart.taxPrice}</div>
+                    </div>
+                </li>
+                <li>
+                    <div className="row">
+                        <div><strong>Order Total</strong></div>
+                        <div><strong>${cart.totalPrice}</strong></div>
+                    </div>
+                </li>
+                <li>
+                    <button
+                        type="button"
+                        onClick={handlePlaceOrder}
+                        className="primary block"
+                        disabled={cart.cartItems.length === 0}>
+                        Place Order
+                    </button>
+                </li>
+                {loading && <LoadingSpinner />}
+                {error && <ErrorMessage variant="danger">{error}</ErrorMessage>}
+                
+            </ul>
+            
+        </div>
                     
                     </div>
             </div>
