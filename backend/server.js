@@ -16,6 +16,11 @@ app.use('/catalogues', cataloguesRouter)
 app.use('/user', userRouter)
 app.use('/orders', orderRouter)
 
+//paypal endpoint
+app.get('/config/paypal', (req, res) => {
+    res.send(process.env.PAYPAL_CLIENT_ID || 'sb');
+} )
+
 // error catcher
 app.use((err, req, res, next) => {
     res.status(500).send({ message: err.message });

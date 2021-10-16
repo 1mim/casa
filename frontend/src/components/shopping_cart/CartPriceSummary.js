@@ -37,7 +37,7 @@ const CartPriceSummary = ({ cart, handlePlaceOrder, error, loading , itemsPrice,
                 <li>
                     <button
                         type="button"
-                        onSubmit={handlePlaceOrder}
+                        onClick={handlePlaceOrder}
                         className="primary block"
                         disabled={cart.cartItems.length === 0}>
                         Place Order

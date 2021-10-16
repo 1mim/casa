@@ -7,11 +7,13 @@ import NavBar from './components/NavBar';
 import ProductCatalogue from './components/product_list/ProductCatalogue';
 import ProductDetail from './components/product_list/ProductDetail';
 import DeliveryInfo from './components/shopping_cart/DeliveryInfo';
-import OrderConfirmed from './components/shopping_cart/OrderConfirmed';
+// import OrderConfirmed from './components/shopping_cart/OrderConfirmed';
 import Payment from './components/shopping_cart/Payment';
+// import Payment2 from './components/shopping_cart/Payment2';
 import PlaceOrder from './components/shopping_cart/PlaceOrder';
 import ShoppingCart from './components/shopping_cart/ShoppingCart';
 import Login from './components/user_account/Login';
+import OrderDetails from './components/user_account/OrderDetails';
 import Register from './components/user_account/Register';
 
 function App() {
@@ -35,7 +37,7 @@ function App() {
             <Route path="/register" component={Register} />
             <Route path="/delivery" component={DeliveryInfo} />
             <Route path="/payment" component={Payment} />
-            {/* <Route path="/order/:id?" component={OrderConfirmed} /> */}
+            <Route path="/order/:id" component={OrderDetails} />
             <Route exact path="/placeorder" component={PlaceOrder} />
       </Switch>
       </main>
