@@ -11,8 +11,9 @@ import OrderConfirmed from './components/shopping_cart/OrderConfirmed';
 import PlaceOrder2 from './components/shopping_cart/PlaceOrder2';
 import ShoppingCart from './components/shopping_cart/ShoppingCart';
 import Login from './components/user_account/Login';
-// import OrderDetails from './components/user_account/OrderDetails';
+import OrderDetails from './components/user_account/OrderDetails';
 import Register from './components/user_account/Register';
+import UserAccount from './components/user_account/UserAccount';
 
 function App() {
 
@@ -31,12 +32,12 @@ function App() {
             <Route path="/product/:id" component={ProductDetail} />
             <Route path="/cart/:id?" component={ShoppingCart} />
             <Route path="/login" component={Login} />
-            {/* <Route path="/login" render={(props) => <Login {...props} userInfo={userInfo} /> } /> */}
             <Route path="/register" component={Register} />
             <Route path="/delivery" component={DeliveryInfo2} />
-            {/* <Route path="/orderdetails/:id" component={OrderDetails} /> */}
             <Route path="/placeorder/:id" component={PlaceOrder2} />
             <Route exact path="/success/:id" component={OrderConfirmed} />
+            <Route exact path="/account" component={UserAccount} />
+            <Route exact path="/account/orderdetails/:id" component={OrderDetails} />
       </Switch>
       </main>
       </div>

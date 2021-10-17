@@ -23,7 +23,8 @@ const NavBar = ({ cartItems, userInfo }) => {
                         <div className="dropdown">
                             <Link to="#">{userInfo.name} <i className="fa fa-caret-down"></i> {" "}</Link>
                             <ul className="dropdown-content">
-                            <Link to="#logout" onClick={handlelogout}>Logout</Link>
+                                <li><Link to="/account">Account</Link></li>
+                                <li><Link to="#logout" onClick={handlelogout}>Logout</Link></li>
                             </ul>
                             </div>
                     ) : (

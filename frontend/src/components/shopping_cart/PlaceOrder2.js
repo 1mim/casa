@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import ErrorMessage from '../modals/ErrorMessage';
 import LoadingSpinner from '../modals/LoadingSpinner';
 import { detailsOrder, payOrder } from '../redux/actions/orderActions';
-import { ORDER_PAY_RESET } from '../redux/constants/orderConstants';
+import { ORDER_CREATE_RESET, ORDER_PAY_RESET } from '../redux/constants/orderConstants';
 import CartItemsOnPOScreen from '../shopping_cart/CartItemsOnPOScreen';
 
 
@@ -49,6 +49,7 @@ const PlaceOrder2 = (props) => {
     const handleSuccessPayment = (paymentResult) => {
         dispatch(payOrder(order, paymentResult))
         props.history.push(`/success/${order._id}`);
+        dispatch({ type: ORDER_CREATE_RESET });
     }
 
     return loading ? (<LoadingSpinner />) :

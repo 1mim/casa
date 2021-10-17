@@ -4,7 +4,7 @@ import ErrorMessage from '../modals/ErrorMessage';
 import LoadingSpinner from '../modals/LoadingSpinner';
 import { savePaymentMethod, saveShippingAddress } from '../redux/actions/cartActions';
 import { createOrder } from '../redux/actions/orderActions';
-import { ORDER_CREATE_RESET } from '../redux/constants/orderConstants';
+// import { ORDER_CREATE_RESET } from '../redux/constants/orderConstants';
 import CheckoutSteps from './CheckoutSteps'
 
 const DeliveryInfo2 = (props) => {
@@ -63,7 +63,7 @@ const DeliveryInfo2 = (props) => {
     useEffect(() => {
         if (success) {
             props.history.push(`/placeorder/${order._id}`);
-            dispatch({ type: ORDER_CREATE_RESET });
+            // dispatch({ type: ORDER_CREATE_RESET });
         }
     }, [dispatch, order, props.history, success])
 

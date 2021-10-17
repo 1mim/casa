@@ -6,6 +6,12 @@ const router = express.Router();
 const Order = require('../models/orderModel');
 const isAuth = require('../auth')
 
+//get all orders for that user:
+router.get('/list', isAuth, expressAsyncHandler(async (req, res) => {
+    const orders = await Order.find({ user: req.user._id });
+    res.send(orders);
+}));
+
 // create/send order to database
 router.post('/', isAuth, expressAsyncHandler(async(req, res) => {
     if (req.body.orderItems.length === 0) {
