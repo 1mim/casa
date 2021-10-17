@@ -12,19 +12,19 @@ const NavBar = ({ cartItems, userInfo }) => {
     }
     
     return (
-        <div className="grid-container row">
+        <div className="grid-container row navbar">
             <div>Menu</div>
-            <div><Link to="/" className="ame brand" >CASA</Link></div>
+            <div><Link to="/" className="ame brand navbar" >CASA</Link></div>
    <div><Link to="/cart">Cart {cartItems.length > 0 && (
                 <span className="badge">{cartItems.length}</span>
             )}</Link>
                 {
                     userInfo ? (
-                        <div className="dropdown">
+                        <div className="dropdown navbar">
                             <Link to="#">{userInfo.name} <i className="fa fa-caret-down"></i> {" "}</Link>
-                            <ul className="dropdown-content">
-                                <li><Link to="/account">Account</Link></li>
-                                <li><Link to="#logout" onClick={handlelogout}>Logout</Link></li>
+                            <ul className="dropdown-content navbar">
+                                <li className="navbar"><Link to="/account">Account</Link></li>
+                                <li className="navbar"><Link to="#logout" onClick={handlelogout}>Logout</Link></li>
                             </ul>
                             </div>
                     ) : (

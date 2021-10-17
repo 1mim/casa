@@ -24,6 +24,10 @@ body {
   height: 100%;
 }
 
+.navbar {
+  color: #D9CFC1;
+}
+
 .row {
   display: flex;
   flex-wrap: wrap;
@@ -86,14 +90,14 @@ img.large {
 
 a {
   text-decoration: none;
-  color: black;
+  color: #D9CFC1;
 }
 a:hover {
-  color: tan;
+  color: #D9CFC1;
 }
 
 .brand:hover {
-  color: black;
+  color: #D9CFC1;
 }
 
 .subtotal {

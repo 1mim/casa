@@ -4,6 +4,7 @@ import LoadingSpinner from '../modals/LoadingSpinner';
 import ErrorMessage from '../modals/ErrorMessage';
 import { useSelector, useDispatch } from 'react-redux'
 import { listProducts } from '../redux/actions/productActions'
+import "./Catalogue.css";
 
 
 const ProductCatalogue = () => {
@@ -21,7 +22,7 @@ const ProductCatalogue = () => {
             {
                 loading ? <LoadingSpinner></LoadingSpinner>
                 : error ? <ErrorMessage variant="danger">{error}</ErrorMessage>
-                : <div className="row center">
+                : <div className="flex-container">
                 {products.map((product) => (
                     <ProductCard key={product._id} product={product} />
                 ))}
