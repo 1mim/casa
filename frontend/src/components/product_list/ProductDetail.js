@@ -32,39 +32,45 @@ const ProductDetail = (props) => {
             : error ? <ErrorMessage variant="danger">{error}</ErrorMessage>
             : (
             
-             <div>
-            <Link to="/">Back to store</Link>
-            <div className="row top">
-            <div className="col-2">
-            <img className="large" src={product.image} alt={product.name} />
+             <div className="">
+            <div className="flex-container-deets">
+            <div className="detImgItem">
+            <img className="highlight" src={product.image} alt={product.name} />
             </div>
-            <div className="col-1">
-                <div>{product.name}</div>
-                <div>${product.price}</div>
-                <div>
+                <div className="detOfItem">
+                <div><Link to="/"><i class="fa fa-arrow-circle-left"></i> Back to store</Link> </div><br/>
+                <div className="producttype">{product.type}</div>
+                <div className="name"> {product.name} </div>
+                                        <div className="price">${product.price.toFixed(2)}</div>
+                                        <div>
                     {product.countInStock > 0 ? (
-                        <span className="success">In Stock</span>
+                        <span className="instock">In Stock</span>
                     ) : (
                             <span className="danger">Unavailable</span>
                     )}
-                </div>
+                </div><br />
+                                        <div className="description"> <p>{product.description} </p></div><br/>
+               
                                         {product.countInStock > 0 && (
                                             <>
-                                                <li>
-                                                    <div className="row">
-                                                        <div>Qty</div>
-                                                    </div>
-                                                    <select value={qty} onChange={handleQtyChange}>
-                                                        {
+                                                
+                                                    <div className="container-row">
+                                                     <div>
+                                                    <div className="quantity">Quantity</div>  <select value={qty} onChange={handleQtyChange}>
+                                                     {
                                                             [...Array(product.countInStock).keys()].map(x => (
                                                                 <option key={x+1} value={x+1}>{x+1}</option>
                                                             ))
-                                                        }
+                                                        } 
                                                     </select>
-</li>
-                                                <button onClick={addToCartHandler} className="primary block">Added to Cart</button>
-                                                </>
-                )}
+
+                                                    </div>
+
+                                                <button onClick={addToCartHandler} className="add">Add to Cart</button>
+                                                </div>
+                                            </>
+                                        )}
+                                       
                                         
             </div></div>
         </div>)}

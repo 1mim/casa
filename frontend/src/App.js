@@ -30,14 +30,14 @@ function App() {
         <main>
           <Switch>
             <Route exact path="/" component={ProductCatalogue} />
-            <Route path="/product/:id" component={ProductDetail} />
+            <Route exact path="/product/:id" component={ProductDetail} />
             <Route path="/cart/:id?" component={ShoppingCart} />
             <Route path="/login" component={Login} />
             <Route path="/register" component={Register} />
             <Route path="/delivery" component={DeliveryInfo2} />
             <Route path="/placeorder/:id" component={PlaceOrder2} />
             <Route exact path="/success/:id" component={OrderConfirmed} />
-            <PrivateRoute exact path="/account" component={UserAccount} />
+            <PrivateRoute path="/account" component={UserAccount} />
             <Route exact path="/account/orderdetails/:id" component={OrderDetails} />
       </Switch>
       </main>

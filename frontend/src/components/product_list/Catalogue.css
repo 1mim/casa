@@ -1,5 +1,6 @@
 body {
     background-color: #081c15;
+      color:#D9CFC1;
 }
 
 .flex-container {
@@ -8,7 +9,8 @@ body {
     justify-content: space-evenly; 
     padding: 0;
     margin: 2rem;
-    list-style: none   
+    list-style: none;
+    gap: 3rem 0rem;   
 }
 
 .flex-item {
@@ -21,6 +23,11 @@ body {
     font-size: 1em;
 }
 
+img{
+    /* filter: saturate(110%); */
+    filter: brightness(1.1);
+}
+
 img.index {
     object-fit: cover;
     width:24rem;
@@ -30,7 +37,52 @@ img.index {
     margin: 2rem;
   }
 
+  /* for details page */
 
+.flex-container-deets {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-evenly; 
+    padding: 0;
+    margin: 2rem 0 0 0;
+    list-style: none;
+    gap: 3rem 0rem;   
+}
+
+img.highlight {
+object-fit: cover;
+width:800px;
+height:450px;
+/* min-width: 20rem; */
+max-width: 100%;
+/* margin: 2rem; */
+}
+
+.detImgItem {
+    flex-basis: 800px;
+    left: 0px;
+    margin-left: -10%;
+    align-self: flex-start;
+    /* display: flex; */
+}
+
+.detOfItem {
+    flex-basis: 400px;
+    margin-top: 2rem;
+    /* display: flex; */
+}
+
+@media all and (max-width: 500px) {
+    .flex-container-deets {
+        flex-direction: column;
+    }
+    img.highlight {
+        object-fit: cover;
+        width:450px;
+        height:450px;
+        /* max-width: 100%; */
+        }
+}
 .name {
     font-family: "Ame";   
     line-height: 2.8rem;
@@ -48,6 +100,10 @@ img.index {
     font-size: 1.6rem;
     font-family: Georgia, 'Times New Roman', Times, serif;
     font-weight: 300;
+}
+
+.description {
+    font-size: 0.9rem;
 }
 
 .discover {
@@ -77,3 +133,74 @@ img.index {
     float: right;
     margin-top: -9rem;
 }
+
+button.add {
+    display:inline-block;
+    padding:1.4em 3em;
+    border:0.16em solid #D9CFC1;
+    margin:0 0.3em 0.3em 0;
+    box-sizing: border-box;
+    text-decoration:none;
+    text-transform:uppercase;
+    font-size: 0.7rem;
+    letter-spacing: 0.1rem;
+    /* font-weight:400; */
+    color:#D9CFC1;
+    text-align:center;
+    transition: all 0.15s;
+    background-color: rgba(0, 0, 0, 0);
+}
+
+button.add:hover {
+    color:#081c15;
+    border-color:#D9CFC1;
+    background-color: #D9CFC1;
+    cursor: pointer;
+}
+    
+button.add:active {
+    color:#D9CFC1;
+    border-color:#D9CFC1;
+}
+
+@media all and (max-width:30em){
+  a.button2{
+    display: block;
+    margin: 0.4em auto;
+}
+}
+
+select {
+    font-size: 0.7rem;
+    display:inline-block;
+    padding:0.6em 1em;
+    border:0.16em solid #D9CFC1;
+    margin:0.5em 1.5em 0.3em 0em;
+    box-sizing: border-box;
+    text-decoration:none;
+    text-transform:uppercase;
+    font-size: 0.7rem;
+    letter-spacing: 0.1rem;
+    color:#D9CFC1;
+    text-align:center;
+    transition: all 0.15s;
+    background-color: rgba(165, 86, 86, 0);
+}
+
+.container-row {
+    display: flex;
+    align-items:flex-end;
+  }
+
+.quantity {
+text-transform: uppercase;
+letter-spacing: 0.1rem;
+font-size: 0.6rem;
+}
+
+.instock {
+    text-transform: uppercase;
+    letter-spacing: 0.1rem;
+    font-size: 0.6rem;
+    color: #73BF73;
+    }
