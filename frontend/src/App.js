@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 import './App.css';
 import NavBar from './components/NavBar';
+import PrivateRoute from './components/PrivateRoute';
 import ProductCatalogue from './components/product_list/ProductCatalogue';
 import ProductDetail from './components/product_list/ProductDetail';
 import DeliveryInfo2 from './components/shopping_cart/DeliveryInfo2';
@@ -36,7 +37,7 @@ function App() {
             <Route path="/delivery" component={DeliveryInfo2} />
             <Route path="/placeorder/:id" component={PlaceOrder2} />
             <Route exact path="/success/:id" component={OrderConfirmed} />
-            <Route exact path="/account" component={UserAccount} />
+            <PrivateRoute exact path="/account" component={UserAccount} />
             <Route exact path="/account/orderdetails/:id" component={OrderDetails} />
       </Switch>
       </main>

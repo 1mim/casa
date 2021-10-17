@@ -1,5 +1,5 @@
 import axios from "axios";
-import { USER_LOGIN_FAIL, USER_LOGIN_REQUEST, USER_LOGIN_SUCCESS, USER_LOGOUT, USER_REGISTER_FAIL, USER_REGISTER_REQUEST, USER_REGISTER_SUCCESS } from "../constants/userConstants"
+import { USER_DETAILS_FAIL, USER_DETAILS_REQUEST, USER_DETAILS_SUCCESS, USER_LOGIN_FAIL, USER_LOGIN_REQUEST, USER_LOGIN_SUCCESS, USER_LOGOUT, USER_REGISTER_FAIL, USER_REGISTER_REQUEST, USER_REGISTER_SUCCESS, USER_UPDATE_REQUEST, USER_UPDATE_RESET, USER_UPDATE_SUCCESS } from "../constants/userConstants"
 
 export const login = (email, password) => async (dispatch) => {
     dispatch({ type: USER_LOGIN_REQUEST, payload: { email, password } });
@@ -40,5 +40,44 @@ export const register = (name, email, password) => async (dispatch) => {
                 ? error.response.data.message
                 : error.message,
         })
+    }
+}
+
+export const detailsUser = (userId) => async (dispatch, getState) => {
+    dispatch({ type: USER_DETAILS_REQUEST, payload: userId });
+    const { userLogin: { userInfo }, } = getState();
+    try {
+        const { data } = await axios.get(`/user/${userId}`, {
+            headers: { Authorization: `Bearer ${userInfo.token}` },
+        });
+        dispatch({ type: USER_DETAILS_SUCCESS, payload: data });
+    } catch (error) {
+        const message =
+            error.response && error.response.data.message
+                ? error.response.data.message
+                : error.message;
+        dispatch({ type: USER_DETAILS_FAIL, payload: message });
+    }
+
+}
+
+export const updateUserProfile = (user) => async (dispatch, getState) => {
+    dispatch({ type: USER_UPDATE_REQUEST, payload: user });
+    const { userLogin: { userInfo }, } = getState();
+    try {
+        const { data } = await axios.put(`/user/profile`, user, {
+            header: { Authorization: `Bearer ${userInfo.token}` },
+        });
+        dispatch({ type: USER_UPDATE_SUCCESS, payload: data });
+        dispatch({ type: USER_LOGIN_SUCCESS, payload: data });
+        localStorage.setItem('userInfo', JSON.stringify(data));
+
+    } catch (error){
+        const message =
+            error.response && error.response.data.message
+                ? error.response.data.message
+                : error.message;
+        dispatch({ type: USER_UPDATE_RESET, payload: message });
+
     }
 }

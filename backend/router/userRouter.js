@@ -5,6 +5,7 @@ const bcrypt = require('bcryptjs');
 //import catalogue db from model
 const User = require('../models/userModel');
 const generateToken = require('../utils.js');
+const isAuth = require('../auth')
 
 // get all user
 router.get('/', async(req, res) => {
@@ -14,6 +15,16 @@ router.get('/', async(req, res) => {
     } catch (error) {
         res.status(404).json({ nouserfound: error });
 
+    }
+})
+
+//get user by id:
+router.get('/:id', async (req, res) => {
+    const user = await User.findById(req.params.id);
+    if (user) {
+        res.send(user);
+    } else {
+        res.send(404).send({ message: 'User Not Found' });
     }
 })
 
@@ -50,6 +61,27 @@ router.post('/register', async (req, res) => {
         isAdmin: user.isAdmin,
         token: generateToken(createdUser),
     })
+})
+
+
+//updating user info
+router.put('/profile', isAuth, async (req, res) => {
+    const user = await User.findById(req.user._id);
+    if (user) {
+        user.name = req.body.name || user.name;
+        user.email = req.body.email || user.email;
+        if (req.body.password) {
+            user.password = bcrypt.hashSync(req.body.password, 8);
+        }
+        const updatedUser = await user.save();
+        res.send({
+            _id: updatedUser._id,
+            name: updatedUser.name,
+            email: updatedUser.email,
+            isAdmin: updatedUser.isAdmin,
+            token: generateToken(updatedUser), 
+        })
+    }
 })
 
 module.exports = router;
