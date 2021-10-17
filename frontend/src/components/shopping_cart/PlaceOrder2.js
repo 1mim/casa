@@ -42,12 +42,13 @@ const PlaceOrder2 = (props) => {
                 } else {
                     setSdkReady(true);
                 }
-            }
+            } 
         }
-    }, [dispatch, order, orderId, sdkReady, successPay]);
+    }, [dispatch, order, orderId, sdkReady, props.history, successPay]);
         
     const handleSuccessPayment = (paymentResult) => {
         dispatch(payOrder(order, paymentResult))
+        props.history.push(`/success/${order._id}`);
     }
 
     return loading ? (<LoadingSpinner />) :

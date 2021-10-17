@@ -1,9 +1,10 @@
 import React from 'react'
 
-const OrderConfirmed = () => {
+const OrderConfirmed = (props) => {
     return (
         <div>
-            <p>Order is confirmed</p>
+            <p>Thank you.</p>
+            <p> Order is confirmed. </p>
         </div>
     )
 }

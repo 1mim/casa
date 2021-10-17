@@ -6,14 +6,17 @@ import './App.css';
 import NavBar from './components/NavBar';
 import ProductCatalogue from './components/product_list/ProductCatalogue';
 import ProductDetail from './components/product_list/ProductDetail';
-import DeliveryInfo from './components/shopping_cart/DeliveryInfo';
+// import DeliveryInfo from './components/shopping_cart/DeliveryInfo';
+import DeliveryInfo2 from './components/shopping_cart/DeliveryInfo2';
+import OrderConfirmed from './components/shopping_cart/OrderConfirmed';
 // import OrderConfirmed from './components/shopping_cart/OrderConfirmed';
 import Payment from './components/shopping_cart/Payment';
 // import Payment2 from './components/shopping_cart/Payment2';
 import PlaceOrder from './components/shopping_cart/PlaceOrder';
+import PlaceOrder2 from './components/shopping_cart/PlaceOrder2';
 import ShoppingCart from './components/shopping_cart/ShoppingCart';
 import Login from './components/user_account/Login';
-import OrderDetails from './components/user_account/OrderDetails';
+// import OrderDetails from './components/user_account/OrderDetails';
 import Register from './components/user_account/Register';
 
 function App() {
@@ -35,9 +38,12 @@ function App() {
             <Route path="/login" component={Login} />
             {/* <Route path="/login" render={(props) => <Login {...props} userInfo={userInfo} /> } /> */}
             <Route path="/register" component={Register} />
-            <Route path="/delivery" component={DeliveryInfo} />
+            {/* <Route path="/delivery" component={DeliveryInfo} /> */}
+            <Route path="/delivery" component={DeliveryInfo2} />
             <Route path="/payment" component={Payment} />
-            <Route path="/order/:id" component={OrderDetails} />
+            {/* <Route path="/order/:id" component={OrderDetails} /> */}
+            <Route path="/order/:id" component={PlaceOrder2} />
+            <Route exact path="/success/:id" component={OrderConfirmed} />
             <Route exact path="/placeorder" component={PlaceOrder} />
       </Switch>
       </main>
