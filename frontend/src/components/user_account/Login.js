@@ -29,28 +29,32 @@ const Login = (props) => {
     }, [props.history, redirect, userInfo])
 
     return (
-        <div>
-            <form className="form" onSubmit={handleSubmit}>
+        <div className="flex-container-shopping">
+           
 
-                <div><h1>Sign In</h1></div>
+            <div className="container-cart ">
+            <div className="cat-title">Sign In</div>
+            <form className="borang-address" onSubmit={handleSubmit}>
+
                 {loading && <LoadingSpinner />}
                 {error && <ErrorMessage variant='danger'>{error}</ErrorMessage>}
-                <div>
-                    <label htmlFor="email">Email address</label>
-                    <input type="email" id="email" placeholder="Enter email" required onChange={(e) => setEmail(e.target.value)}></input>
+                <div >
+                    <label htmlFor="email" className="isiborang">Email address</label>
+                    <input type="email" className="isiborang" id="email" placeholder="Enter email" required onChange={(e) => setEmail(e.target.value)}></input>
                 </div>
                 <div>
-                    <label htmlFor="password">Password</label>
-                    <input type="password" id="password" placeholder="password" required onChange={(e) => setPassword(e.target.value)}></input>
+                    <label htmlFor="password" className="isiborang">Password</label>
+                    <input type="password" className="isiborang" id="password" placeholder="password" required onChange={(e) => setPassword(e.target.value)}></input>
                 </div>
                 <div>
-                    <label />
-                    <button className="primary" type="submit">Sign In</button>
+                    
+                    <button className="browse" type="submit">Sign In</button>
                 </div>
-                <div><label />
-                    Don't have an account? <Link to={`/register?redirect=${redirect}`}>Create one now.</Link>
+                <div className="p-login">
+                    Don't have an account? <Link to={`/register?redirect=${redirect}`}><span className="p-login-bold">Create one now.</span></Link>
                 </div>
-            </form>
+                </form>
+                </div>
 
         </div>
     )
