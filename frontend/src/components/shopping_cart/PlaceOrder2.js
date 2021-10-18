@@ -7,6 +7,7 @@ import LoadingSpinner from '../modals/LoadingSpinner';
 import { detailsOrder, payOrder } from '../redux/actions/orderActions';
 import { ORDER_CREATE_RESET, ORDER_PAY_RESET } from '../redux/constants/orderConstants';
 import CartItemsOnPOScreen from '../shopping_cart/CartItemsOnPOScreen';
+import CheckoutSteps from './CheckoutSteps';
 
 
 const PlaceOrder2 = (props) => {
@@ -55,92 +56,62 @@ const PlaceOrder2 = (props) => {
     return loading ? (<LoadingSpinner />) :
         error ? (<ErrorMessage variant="danger">{error}</ErrorMessage>)
             : (
-                <div>
-                    
-                    <div className="row top">
-                        
-                        <div className="col-2">
-                        <h2>Order {order._id}</h2>
-                    <ul>
-                        <li>
-                            <div className="card card-body">
-                            <h2>Shipping</h2>
-                            <p>
+                
+                    <div className="flex-container-shopping">
+                    <div>
+                    <CheckoutSteps step2 step3 />
+                   
+                            <div className="container-cart ">
+                                
+                            <div className="cat-title">Order Items</div>
+                            <div className="">
+                          
+                                {order.orderItems.map((item) => (
+                                    <CartItemsOnPOScreen key={item.product} item={item} />
+                                ))
+                                }
+                            
+                            </div></div><br/>
+                            <div className="cat-title">Delivery Details</div>
+                            <div className="borang-address">
+                                <div>
                                 <strong>Name:</strong> {order.shippingAddress.fullName} <br />
                                 <strong>Address:</strong> {order.shippingAddress.address},
                                 {order.shippingAddress.city}, {order.shippingAddress.postalCode},
                                 {order.shippingAddress.country}
 
-                                        </p>
-                                        {order.isDeliverd ? <div>Delivered at {order.deliveredAt}</div> 
-                                        : <div>Not Delivered</div>}
-                                    </div>
-                        </li>
-                        <li>
-                            <div className="card card-body">
-                            <h2>Payment</h2>
-                            <p>
-                                <strong>Payment Method:</strong> {order.paymentMethod} <br />
-                                        </p>
-                                        {order.isPaid ? <div>Paid on {order.paidAt}</div> 
-                                        : <div>Not Paid</div>}
-                            </div> </li>
-                        <li>
-                            <div className="card card-body">
-                            <h2>Order Items</h2>
-                            <ul>
-                                {order.orderItems.map((item) => (
-                                    <CartItemsOnPOScreen key={item.product} item={item} />
-                                ))
-                                }
-                            </ul>
-                            </div></li>
-                    </ul>
+                                        </div>
+                
+                            </div>
+                
 
-                </div>
-                <div className="col-1">
-                    {/* <CartPriceSummary
-                        cart={cart}
-                        itemsPrice={cart.itemsPrice}
-                        shippingPrice={cart.shippingPrice}
-                        taxPrice={cart.taxPrice}
-                        totalPrice={cart.totalPrice}
-                        handlePlaceOrder={handlePlaceOrder}
-                        loading={loading}
-                        error={error}
-                    /> */}
-                            <div className="card card-body">
-            <ul>
-                <li>
-                    <h2>Order Summary</h2>
-                </li>
-                <li>
-                    <div className="row">
-                        <div>Items</div>
-                        <div>${order.itemsPrice.toFixed(2)}</div>
                     </div>
-                </li>
-                <li>
-                    <div className="row">
-                        <div>Delivery Cost</div>
-                        <div>${order.shippingPrice.toFixed(2)}</div>
-                    </div>
-                </li>
-                <li>
-                    <div className="row">
+                    
+                <div className="flex-item-shopping">
+                   
+                            <div className="fixed-elements">
+            
+                                <div className="order-sum-text">Order Summary</div>
+                                <div className="subtotal-grid ">
+                       <div className="subtotal-keys">
+                       <div>Subtotal</div>
+                       <div>Delivery Cost</div>
                         <div>Taxes</div>
-                        <div>${order.taxPrice}</div>
-                    </div>
-                </li>
-                <li>
-                    <div className="row">
-                        <div><strong>Order Total</strong></div>
-                        <div><strong>${order.totalPrice}</strong></div>
-                    </div>
-                </li>
+                        <div className="subtotal-keys-total">Order Total</div>
+                   </div>
+                   
+                       <div className="subtotal-value ">
+                       <div>${order.itemsPrice.toFixed(2)}</div>
+                       <div>${order.shippingPrice.toFixed(2)}</div>
+                                   <div>${order.taxPrice}</div>
+                                   <div className="subtotal-value-total">${order.totalPrice.toFixed(2)}</div>
+                           
+                   </div></div>
+               
+               
                 {
                     !order.isPaid && (
-                        <li>
+                        <div>
                                                 {!sdkReady ? (<LoadingSpinner />) :
                                                   (  <>
                                                         {errorPay && (<ErrorMessage variant="danger">{errorPay}</ErrorMessage>)}
@@ -148,14 +119,14 @@ const PlaceOrder2 = (props) => {
                               <PayPalButton amount={order.totalPrice} onSuccess={handleSuccessPayment} />
                                                     </> 
                                 )}
-                                            </li>
+                                            </div>
                     )
                 }
-            </ul>
+            
             
         </div>
                     
-                    </div>
+                    
             </div>
         </div>
     )

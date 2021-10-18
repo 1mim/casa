@@ -72,7 +72,7 @@ const DeliveryInfo2 = (props) => {
         
             <div className="flex-container-shopping">
                 <div className="">
-                <CheckoutSteps step1 step2 />
+                <CheckoutSteps step2 />
                     <div className="cat-title">Delivery Details</div>
                     
                 <div className="container-cart ">
@@ -146,7 +146,7 @@ const DeliveryInfo2 = (props) => {
             order summary */}
 
             <div className="flex-item-shopping">
-                   <div>
+                   <div className="fixed-elements">
                    <div className="order-sum-text">Order Summary</div>
                        
                    <div className="subtotal-grid ">
@@ -161,7 +161,7 @@ const DeliveryInfo2 = (props) => {
                        <div>${cart.itemsPrice.toFixed(2)}</div>
                        <div>${cart.shippingPrice.toFixed(2)}</div>
                                    <div>${cart.taxPrice}</div>
-                                   <div className="subtotal-value-total">${cart.totalPrice}</div>
+                                   <div className="subtotal-value-total">${cart.totalPrice.toFixed(2)}</div>
                            
                    </div></div>
                       
