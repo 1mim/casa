@@ -138,8 +138,11 @@ const DeliveryInfo2 = (props) => {
                     {/* <button className="primary" type="submit">
                         Add Delivery Address
                     </button> */}
-                </div>
-                    </form></div>
+                        </div>
+                        {loading && <LoadingSpinner />}
+                       {error && <ErrorMessage variant="danger">Please fill in all fields.</ErrorMessage>}
+                    </form>
+                   </div>
                 </div>
             
 {/*             
@@ -175,11 +178,6 @@ const DeliveryInfo2 = (props) => {
                                Proceed to Payment
                            </button>
                        
-                       {loading && <LoadingSpinner />}
-                       {error && <ErrorMessage variant="danger">{error}</ErrorMessage>}
-                       
-                   
-                   
                </div>
                 </div></div>
         

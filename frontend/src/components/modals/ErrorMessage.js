@@ -3,7 +3,7 @@ import "./modals.css"
 
 const ErrorMessage = (props) => {
     return (
-        <div className={`alert alert-${props.variant || 'info'}`}>
+        <div className={`modal modal-${props.variant || 'info'}`}>
             {props.children}
         </div>
     )

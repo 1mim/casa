@@ -73,10 +73,10 @@ const PlaceOrder2 = (props) => {
                             
                             </div></div><br/>
                             <div className="cat-title">Delivery Details</div>
-                            <div className="borang-address">
+                            <div className="address-details">
                                 <div>
-                                <strong>Name:</strong> {order.shippingAddress.fullName} <br />
-                                <strong>Address:</strong> {order.shippingAddress.address},
+                                <span className="address-details-bold ">Recipient:</span> {order.shippingAddress.fullName} <br />
+                                <span className="address-details-bold ">Address:</span> {order.shippingAddress.address},
                                 {order.shippingAddress.city}, {order.shippingAddress.postalCode},
                                 {order.shippingAddress.country}
 

@@ -201,6 +201,10 @@ button.continue:active {
     font-weight: bold;
   }
 
+.contain-row-checkout {
+    width:80%;
+}
+
 .borang-address {
     border-radius: 0.3rem;
     border: 2px solid #D9CFC1;
@@ -338,7 +342,6 @@ button.browse {
 }
 
 button.browse:hover {
-    color:#081c15;
     border-color:#D9CFC1;
     background-color: #D9CFC1;
     color:#081c15;
@@ -348,4 +351,28 @@ button.browse:hover {
 button.browse:active {
     color:#D9CFC1;
     border-color:#D9CFC1;
+}
+
+
+
+.address-details {
+    border-radius: 0.3rem;
+    border: 1px solid #D9CFC1;
+    /* flex-grow: 2; */
+    width: 91%;
+    height: 45px;
+    margin: 1rem 3rem;
+    padding: 1em;
+    /* width: 100%; */
+    justify-content:space-around;
+    /* display: flex; */
+    /* align-items:center; */
+    flex-shrink: 1;
+    font-size: 0.9rem;
+}
+
+.address-details-bold {
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 0.8rem;
 }
