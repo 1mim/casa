@@ -173,6 +173,11 @@ button.add:active {
     border-color:#D9CFC1;
 }
 
+
+button:focus:not(:focus-visible) {
+    outline: none;
+  }
+
 @media all and (max-width:30em){
   a.button2{
     display: block;
@@ -196,6 +201,10 @@ select {
     transition: all 0.15s;
     background-color: rgba(165, 86, 86, 0);
 }
+
+select:focus:not(:focus-visible) {
+    outline: none;
+  }
 
 .container-row {
     display: flex;

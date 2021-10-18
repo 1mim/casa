@@ -96,15 +96,20 @@
     grid-template-columns: 1fr 1fr;
     display: inline-grid;
     width:95%;
-    /* align-items: center; */
+    align-items:flex-start;
     margin: 0 2em 2em 0;
     /* justify-content:space-evenly; */
     flex-grow: 1;
 }
 
 .subtotal-keys {
-    line-height: 1.4rem;
+    line-height: 2rem;
     font-size: 0.9rem;
+}
+
+.subtotal-keys-total {
+    font-size: 1rem;
+    font-weight: 800;
 }
 
 .subtotal-value {
@@ -112,7 +117,12 @@
     text-align: right;
     font-family: Georgia, 'Times New Roman', Times, serif;
     font-size: 1.2rem;
+    line-height: 2rem;
 
+}
+.subtotal-value-total {
+    font-size: 1.3rem;
+    font-weight: 800;
 }
 
 .order-sum-text {
@@ -122,4 +132,94 @@
     margin-bottom: 1rem;
     /* text-transform: uppercase; */
 
+}
+
+button.continue {
+    display:inline-block;
+    padding:1.45em 3em;
+    border:0.16em solid #D9CFC1;
+    margin:0 0.3em 0.3em 0;
+    box-sizing: border-box;
+    text-decoration:none;
+    text-transform:uppercase;
+    font-size: 0.7rem;
+    letter-spacing: 0.1rem;
+    width:95%;
+    /* font-weight:400; */
+    color:#D9CFC1;
+    text-align:center;
+    transition: all 0.15s;
+    background-color: rgba(0, 0, 0, 0);
+}
+
+button.continue:hover {
+    color:#081c15;
+    border-color:#D9CFC1;
+    background-color: #D9CFC1;
+    cursor: pointer;
+}
+    
+button.continue:active {
+    color:#D9CFC1;
+    border-color:#D9CFC1;
+}
+
+.row-checkout {
+    display: flex;
+    align-items:flex-end;
+    justify-content:space-around;
+    text-transform: uppercase;
+    font-size: 0.55rem;
+    letter-spacing: 0.2rem;
+    max-width: 50%;
+    margin: 0 3rem;
+    
+}
+
+.row-checkout > div.active {
+    font-weight: bold;
+  }
+
+.borang-address {
+    border-radius: 0.3rem;
+    border: 2px solid #D9CFC1;
+    /* flex-grow: 2; */
+    width: 80%;
+    /* height: 45px; */
+    margin: 1rem 3rem;
+    padding: 2em;
+    /* width: 100%; */
+    justify-content:space-around;
+    display: block;
+    align-items:center;
+    flex-shrink: 1;
+}
+
+input.isiborang {
+    display:inline-block;
+    padding:1.45em 3em;
+    border:none;
+    border-bottom:1px solid #D9CFC1;
+    margin:0.3em 0.3em 1em 0;
+    box-sizing: border-box;
+    text-decoration:none;
+    text-transform:uppercase;
+    font-size: 0.7rem;
+    letter-spacing: 0.1rem;
+    width:100%;
+    /* font-weight:400; */
+    color:#D9CFC1;
+    text-align:left;
+    transition: all 0.15s;
+    background-color: rgba(0, 0, 0, 0);
+}
+
+
+
+label.isiborang {
+    text-transform: uppercase;
+    font-size: 0.6rem;
+    font-weight: 700;
+    letter-spacing: 0.2rem;
+    
 }

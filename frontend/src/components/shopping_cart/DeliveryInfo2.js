@@ -69,18 +69,20 @@ const DeliveryInfo2 = (props) => {
 
 
     return (
-        <div>
-            <div className="row top">
-                <div className="col-2">
+        
+            <div className="flex-container-shopping">
+                <div className="">
                 <CheckoutSteps step1 step2 />
-            <form className="form" onSubmit={handlePlaceOrder}>
+                    <div className="cat-title">Delivery Details</div>
+                    
+                <div className="container-cart ">
+            <form className="borang-address" onSubmit={handlePlaceOrder}>
+               
                 <div>
-                    <h1>Delivery Details</h1>
-                </div>
-                <div>
-                    <label htmlFor="fullName">Full Name</label>
+                    <label htmlFor="fullName" className="isiborang">Full Name</label>
                     <input
-                        type="text"
+                                type="text"
+                                className="isiborang"
                         id="fullName"
                         placeholder="Enter full name"
                         value={fullName}
@@ -88,9 +90,10 @@ const DeliveryInfo2 = (props) => {
                     required></input>
                 </div>
                 <div>
-                    <label htmlFor="address">Address</label>
+                    <label htmlFor="address" className="isiborang">Address</label>
                     <input
-                        type="text"
+                                type="text"
+                                className="isiborang"
                         id="address"
                         placeholder="Enter address"
                         value={address}
@@ -98,9 +101,10 @@ const DeliveryInfo2 = (props) => {
                     required></input>
                 </div>
                 <div>
-                    <label htmlFor="city">City</label>
+                    <label htmlFor="city" className="isiborang">City</label>
                     <input
-                        type="text"
+                                type="text"
+                                className="isiborang"
                         id="city"
                         placeholder="Enter city"
                         value={city}
@@ -108,9 +112,10 @@ const DeliveryInfo2 = (props) => {
                     required></input>
                 </div>
                 <div>
-                    <label htmlFor="postalCode">Postal Code</label>
+                    <label htmlFor="postalCode" className="isiborang">Postal Code</label>
                     <input
-                        type="text"
+                                type="text"
+                                className="isiborang"
                         id="postalCode"
                         placeholder="Enter postal code"
                         value={postalCode}
@@ -118,9 +123,10 @@ const DeliveryInfo2 = (props) => {
                     required></input>
                 </div>
                 <div>
-                    <label htmlFor="country">Country</label>
+                    <label htmlFor="country" className="isiborang">Country</label>
                     <input
-                        type="text"
+                                type="text"
+                                className="isiborang"
                         id="country"
                         placeholder="Enter Country"
                         value={country}
@@ -133,57 +139,50 @@ const DeliveryInfo2 = (props) => {
                         Add Delivery Address
                     </button> */}
                 </div>
-                    </form>
-                </div></div>
-            
-            <div className="col-1">
-                
-            <div className="card card-body">
-            <ul>
-                <li>
-                    <h2>Order Summary</h2>
-                </li>
-                <li>
-                    <div className="row">
-                        <div>Items</div>
-                        <div>${cart.itemsPrice.toFixed(2)}</div>
-                    </div>
-                </li>
-                <li>
-                    <div className="row">
-                        <div>Delivery Cost</div>
-                        <div>${cart.shippingPrice.toFixed(2)}</div>
-                    </div>
-                </li>
-                <li>
-                    <div className="row">
-                        <div>Taxes</div>
-                        <div>${cart.taxPrice}</div>
-                    </div>
-                </li>
-                <li>
-                    <div className="row">
-                        <div><strong>Order Total</strong></div>
-                        <div><strong>${cart.totalPrice}</strong></div>
-                    </div>
-                </li>
-                <li>
-                    <button
-                        type="button"
-                        onClick={handlePlaceOrder}
-                        className="primary block"
-                        disabled={cart.cartItems.length === 0}>
-                        Continue
-                    </button>
-                </li>
-                {loading && <LoadingSpinner />}
-                {error && <ErrorMessage variant="danger">{error}</ErrorMessage>}
-                
-            </ul>
-            
-        </div>
+                    </form></div>
                 </div>
-        </div>
+            
+{/*             
+            order summary */}
+
+            <div className="flex-item-shopping">
+                   <div>
+                   <div className="order-sum-text">Order Summary</div>
+                       
+                   <div className="subtotal-grid ">
+                       <div className="subtotal-keys">
+                       <div>Subtotal</div>
+                       <div>Delivery Cost</div>
+                        <div>Taxes</div>
+                        <div className="subtotal-keys-total">Order Total</div>
+                   </div>
+                   
+                       <div className="subtotal-value ">
+                       <div>${cart.itemsPrice.toFixed(2)}</div>
+                       <div>${cart.shippingPrice.toFixed(2)}</div>
+                                   <div>${cart.taxPrice}</div>
+                                   <div className="subtotal-value-total">${cart.totalPrice}</div>
+                           
+                   </div></div>
+                      
+                      
+                           <button
+                               type="button"
+                               onClick={handlePlaceOrder}
+                               className="continue"
+                               disabled={cart.cartItems.length === 0}
+                               >
+                               Proceed to Payment
+                           </button>
+                       
+                       {loading && <LoadingSpinner />}
+                       {error && <ErrorMessage variant="danger">{error}</ErrorMessage>}
+                       
+                   
+                   
+               </div>
+                </div></div>
+        
     )
 }
 
