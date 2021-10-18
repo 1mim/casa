@@ -4,6 +4,7 @@ import { addToCart, removeFromCart } from '../redux/actions/cartActions';
 import CartItems from './CartItems';
 import CartSubTotal from './CartSubTotal';
 import { Link } from 'react-router-dom';
+import "./ShoppingStyle.css";
 
 const ShoppingCart = (props) => {
     const dispatch = useDispatch()
@@ -29,19 +30,20 @@ const ShoppingCart = (props) => {
     }
 
     return (
-        <div className="row top">
+        <div className="flex-container-shopping">
               
-            <div className="col-2 itemcol">
-            <h1 className="ame">Shopping Cart</h1>
+            <div className="">
+                <div className="cat-title">Shopping Cart</div>
+                <div className="container-cart">
                 {cartItems.length === 0 ?
                     (<p>Cart is empty. <Link to="/">Browse our exclusive collection.</Link></p>) :
                     (cartItems.map((item) => (
                         <CartItems key={item.product} item={item} removeFromCartHandler={removeFromCartHandler} dispatch={dispatch}/>
                     ))
                 )
-                }</div>
+                }</div></div>
             
-            <div className="col-1 card card-body">
+            <div className="flex-item-shopping">
                 <CartSubTotal cartItems={cartItems} checkoutHandler={checkoutHandler}/>
             </div>
           
