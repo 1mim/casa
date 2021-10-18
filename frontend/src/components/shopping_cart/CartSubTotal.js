@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 
 const CartSubTotal = ({ cartItems, checkoutHandler }) => {
     return (
-        <div>
+        <div className="fixed-elements">
                 <div className="order-sum-text">Order Summary</div>
         
         <div className="subtotal-grid ">
