@@ -49,7 +49,33 @@ const ProductDetail = (props) => {
                             <span className="danger">Unavailable</span>
                     )}
                 </div><br />
-                                        <div className="description"> <p>{product.description} </p></div><br/>
+                                        <div className="description"> <p>{product.description} </p></div>
+                                        <div className="accordion">
+
+                                        <div className="accordion-item" id="question1">
+                                             <a className="accordion-link" href="#question1">
+                                            Material
+                                            <i class="icon ion-md-arrow-forward"></i>
+                                            <i class="icon ion-md-arrow-down"></i>
+                                                </a>
+                                                <div class="answer">
+                                                    <p> {product.material}</p>
+                                                </div>
+                                            </div>
+                                
+                                            <div class="accordion-item" id="question2">
+                                                
+                                                <a class="accordion-link" href="#question2">
+                                                    Dimension
+                                                    <i class="icon ion-md-arrow-forward"></i>
+                                            <i class="icon ion-md-arrow-down"></i>
+                                                </a>
+                                                <div class="answer">
+                                                    <p> {product.dimensionW}cmW x {product.dimensionD}cmD x {product.dimensionH}cmH</p>
+                                            
+                                                </div>
+                                            </div>
+                                        </div><br/>
                
                                         {product.countInStock > 0 && (
                                             <>
