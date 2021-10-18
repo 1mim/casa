@@ -15,7 +15,7 @@ const NavBar = ({ cartItems, userInfo }) => {
         <div className="grid-container row navbar">
             <div>Menu</div>
             <div><Link to="/" className="ame brand navbar" >CASA</Link></div>
-   <div><Link to="/cart">Cart {cartItems.length > 0 && (
+   <div className="absolute"><Link to="/cart">Cart {cartItems.length > 0 && (
                 <span className="badge">{cartItems.length}</span>
             )}</Link>
                 {
