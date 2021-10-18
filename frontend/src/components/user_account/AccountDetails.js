@@ -1,21 +1,21 @@
-import React, { useEffect } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
+import React from 'react'
+// import { useDispatch, useSelector } from 'react-redux'
 import ErrorMessage from '../modals/ErrorMessage';
 import LoadingSpinner from '../modals/LoadingSpinner';
-import { detailsUser } from '../redux/actions/userActions';
+// import { detailsUser } from '../redux/actions/userActions';
 
-const AccountDetails = () => {
-    const userAcc = useSelector(state => state.userAcc);
-    const { userInfo } = userAcc;
+const AccountDetails = ({user, loading, error}) => {
+    // const userAcc = useSelector(state => state.userAcc);
+    // const { userInfo } = userAcc;
 
-    const dispatch = useDispatch()
+    // const dispatch = useDispatch()
 
-    const userDetails = useSelector(state => state.userDetails);
-    const { loading, error, user } = userDetails;
+    // const userDetails = useSelector(state => state.userDetails);
+    // const { loading, error, user } = userDetails;
 
-    useEffect(() => {
-        dispatch(detailsUser(userInfo._id));
-    }, [dispatch, userInfo._id])
+    // useEffect(() => {
+    //     dispatch(detailsUser(userInfo._id));
+    // }, [dispatch, userInfo._id])
 
 
     const handleSubmit = (e) => {
