@@ -46,7 +46,7 @@ const Login = (props) => {
                     <label htmlFor="password" className="isiborang">Password</label>
                     <input type="password" className="isiborang" id="password" placeholder="password" required onChange={(e) => setPassword(e.target.value)}></input>
                 </div>
-                <div>
+                <div className="center-pls">
                     
                     <button className="browse" type="submit">Sign In</button>
                 </div>

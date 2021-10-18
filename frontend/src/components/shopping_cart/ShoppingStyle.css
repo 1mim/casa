@@ -313,6 +313,10 @@ label.isiborang {
     font-weight: 600;
 }
 
+.center-pls {
+    margin:auto;
+    display:flex;
+}
 
 button.browse {
     display:inline-block;
@@ -325,7 +329,7 @@ button.browse {
     text-transform:uppercase;
     font-size: 0.7rem;
     letter-spacing: 0.1rem;
-    width: 100%;
+    width: 80%;
     /* font-weight:400; */
     color:#D9CFC1;
     text-align:center;

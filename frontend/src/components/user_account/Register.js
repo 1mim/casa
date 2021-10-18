@@ -34,36 +34,39 @@ const Register = (props) => {
   }, [props.history, redirect, userInfo])
 
   return (
-      <div>
-          <form className="form" onSubmit={handleSubmit}>
+      <div className="flex-container-shopping">
+          <div className="container-cart ">
+          <div className="cat-title">Create an Account</div>
 
-              <div><h1>Create an Account</h1></div>
+          <form className="borang-address" onSubmit={handleSubmit}>
+
+              
               {loading && <LoadingSpinner />}
               {error && <ErrorMessage variant='danger'>{error}</ErrorMessage>}
               <div>
-                  <label htmlFor="name">Name</label>
-                  <input type="text" id="name" placeholder="Enter name" required onChange={(e) => setName(e.target.value)}></input>
+                  <label htmlFor="name" className="isiborang">Name</label>
+                  <input type="text" className="isiborang" id="name" placeholder="Enter name" required onChange={(e) => setName(e.target.value)}></input>
               </div>
               <div>
-                  <label htmlFor="email">Email address</label>
-                  <input type="email" id="email" placeholder="Enter email" required onChange={(e) => setEmail(e.target.value)}></input>
+                  <label htmlFor="email" className="isiborang">Email address</label>
+                  <input type="email" className="isiborang" id="email" placeholder="Enter email" required onChange={(e) => setEmail(e.target.value)}></input>
               </div>
               <div>
-                  <label htmlFor="password">Password</label>
-                  <input type="password" id="password" placeholder="password" required onChange={(e) => setPassword(e.target.value)}></input>
+                  <label htmlFor="password" className="isiborang">Password</label>
+                  <input type="password" className="isiborang" id="password" placeholder="password" required onChange={(e) => setPassword(e.target.value)}></input>
               </div>
               <div>
-                  <label htmlFor="confirmPassword">Confirm Password</label>
-                  <input type="password" id="confirmPassword" placeholder="re-enter password" required onChange={(e) => setConfirmPassword(e.target.value)}></input>
+                  <label htmlFor="confirmPassword" className="isiborang">Confirm Password</label>
+                  <input type="password" className="isiborang" id="confirmPassword" placeholder="re-enter password" required onChange={(e) => setConfirmPassword(e.target.value)}></input>
               </div>
-              <div>
-                  <label />
-                  <button className="primary" type="submit">Register</button>
+              <div className="center-pls">
+                  
+                  <button className="browse" type="submit">Register</button>
               </div>
-              <div><label />
-                  Already have an account? <Link to={`/login?redirect=${redirect}`}>Sign in here.</Link>
+              <div className="p-login">
+                  Already have an account? <Link to={`/login?redirect=${redirect}`}><span className="p-login-bold">Sign in here.</span></Link>
               </div>
-          </form>
+          </form></div>
 
       </div>
   )
