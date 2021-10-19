@@ -6,7 +6,6 @@ import { useSelector, useDispatch } from 'react-redux'
 import { listProducts } from '../redux/actions/productActions'
 import "./Catalogue.css";
 
-
 const ProductCatalogue = () => {
 
     const dispatch = useDispatch()
@@ -14,7 +13,7 @@ const ProductCatalogue = () => {
     const { loading, error, products } = productList;
 
     useEffect(() => {
-        dispatch(listProducts({})); 
+        dispatch(listProducts({}));
     }, [dispatch])
 
     return (

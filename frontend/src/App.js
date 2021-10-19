@@ -2,6 +2,7 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
+
 import './App.css';
 import NavBar from './components/NavBar';
 import PrivateRoute from './components/PrivateRoute';
@@ -22,6 +23,7 @@ function App() {
   const { cartItems } = cart;
   const userLogin = useSelector((state) => state.userLogin);
   const { userInfo } = userLogin;
+
 
   return (
     <Router>
