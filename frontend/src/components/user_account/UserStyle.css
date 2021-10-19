@@ -3,7 +3,7 @@
     flex-flow: row wrap;
     justify-content: space-evenly; 
     padding: 0rem;
-    margin-top: 2rem;
+    margin-top: 4rem;
     margin-bottom:3rem;
     list-style: none;
     gap: 0rem 1rem;   
@@ -29,9 +29,10 @@
 .userdeets-section {
     padding: 2rem;
     width: 20%;
-    height: 20rem;
+    height: 20%;
     color: white;
-    background-color: #A77E58;
+    background-color: #BD280A;
+    border-left: 5px solid tan;
     font-size: 1em;
     margin-right: auto;
     margin-right: 0.5rem;
@@ -79,4 +80,23 @@
     border-top-left-radius: 1rem;
     border-top-right-radius: 1rem;
 
+}
+
+.hello {
+    font-size: 1.5rem;
+    margin-top:0.5rem;
+}
+
+.his-summary-section {
+    padding: 2rem;
+    width: 20%;
+    height: 20%;
+    color: white;
+    background-color: #BD280A;
+    border-left: 5px solid tan;
+    font-size: 1em;
+    margin-left: auto;
+    margin-left: 0.5rem;
+    order: 1;
+    display: flex;
 }

@@ -4,6 +4,7 @@ import ErrorMessage from '../modals/ErrorMessage';
 import LoadingSpinner from '../modals/LoadingSpinner';
 import { detailsOrder } from '../redux/actions/orderActions';
 import CartItemsOnPOScreen from '../shopping_cart/CartItemsOnPOScreen';
+// import "../shopping_cart/ShoppingStyle.css"
 
 const OrderDetails = (props) => {
     const dispatch = useDispatch()
@@ -19,97 +20,82 @@ const OrderDetails = (props) => {
     return loading ? (<LoadingSpinner />) :
         error ? (<ErrorMessage variant="danger">{error}</ErrorMessage>)
             : (
-                <div>
-                    
-                    <div className="row top">
+                <div className="flex-container-shopping">
+
                         
-                        <div className="col-2">
-                        <h2>Order {order._id}</h2>
-                    <ul>
-                        <li>
-                            <div className="card card-body">
-                            <h2>Shipping</h2>
-                            <p>
-                                <strong>Name:</strong> {order.shippingAddress.fullName} <br />
-                                <strong>Address:</strong> {order.shippingAddress.address},
+                    <div>
+                        
+                        <div className="container-cart ">
+                                <div className="cat-title">Order Items</div>
+                                <div className="">
+                              
+                                    {order.orderItems.map((item) => (
+                                        <CartItemsOnPOScreen key={item.product} item={item} />
+                                    ))
+                                    }
+                                
+                                </div></div><br/>
+                    
+                           
+                        <div className="cat-title">Delivery Details</div>
+                            
+                            <div className="address-details">
+                                <div>
+                                <span className="address-details-bold ">Status:</span>  {order.isDeliverd ? <span>Delivered at {order.deliveredAt}</span> 
+                                        : <span>Not Delivered</span>} <br />
+                                <span className="address-details-bold ">Address:</span> {order.shippingAddress.address},
                                 {order.shippingAddress.city}, {order.shippingAddress.postalCode},
                                 {order.shippingAddress.country}
+                                
+                                       
 
-                                        </p>
-                                        {order.isDeliverd ? <div>Delivered at {order.deliveredAt}</div> 
-                                        : <div>Not Delivered</div>}
-                                    </div>
-                        </li>
-                        <li>
-                            <div className="card card-body">
-                            <h2>Payment</h2>
-                            <p>
-                                <strong>Payment Method:</strong> {order.paymentMethod} <br />
-                                        </p>
-                                        {order.isPaid ? <div>Paid on {order.paidAt}</div> 
+                                </div>
+            
+                            </div>
+                           
+                            <div className="cat-title">Payment Details</div>
+                            <div className="address-details">
+
+                            <div>
+                            <span className="address-details-bold ">Status:</span>{order.isPaid ? <div>Paid on {order.paidAt}</div> 
                                         : <div>Not Paid</div>}
-                            </div> </li>
-                        <li>
-                            <div className="card card-body">
-                            <h2>Order Items</h2>
-                            <ul>
-                                {order.orderItems.map((item) => (
-                                    <CartItemsOnPOScreen key={item.product} item={item} />
-                                ))
-                                }
-                            </ul>
-                            </div></li>
-                    </ul>
+                                <span className="address-details-bold ">Payment Method:</span>  {order.paymentMethod}
+                                        </div>
+                                        
+                            </div> 
+                       
+                            
+                    </div>
 
-                </div>
-                <div className="col-1">
-                    {/* <CartPriceSummary
-                        cart={cart}
-                        itemsPrice={cart.itemsPrice}
-                        shippingPrice={cart.shippingPrice}
-                        taxPrice={cart.taxPrice}
-                        totalPrice={cart.totalPrice}
-                        handlePlaceOrder={handlePlaceOrder}
-                        loading={loading}
-                        error={error}
-                    /> */}
-                            <div className="card card-body">
-            <ul>
-                <li>
-                    <h2>Order Summary</h2>
-                </li>
-                <li>
-                    <div className="row">
-                        <div>Items</div>
-                        <div>${order.itemsPrice.toFixed(2)}</div>
-                    </div>
-                </li>
-                <li>
-                    <div className="row">
-                        <div>Delivery Cost</div>
-                        <div>${order.shippingPrice.toFixed(2)}</div>
-                    </div>
-                </li>
-                <li>
-                    <div className="row">
-                        <div>Taxes</div>
-                        <div>${order.taxPrice}</div>
-                    </div>
-                </li>
-                <li>
-                    <div className="row">
-                        <div><strong>Order Total</strong></div>
-                        <div><strong>${order.totalPrice}</strong></div>
-                    </div>
-                </li>
                 
-            </ul>
+                <div className="his-summary-section">
+                
+                <div className="">
+        
+                            <div className="order-sum-text">Order Summary</div>
+                            <div className="discover"> <strong>ORDER ID:</strong> {order._id} </div><br/>
+                                <div className="subtotal-grid ">
+                       <div className="subtotal-keys">
+                       <div>Subtotal</div>
+                       <div>Delivery Cost</div>
+                        <div>Taxes</div>
+                        <div className="subtotal-keys-total">Order Total</div>
+                   </div>
+                   
+                       <div className="subtotal-value ">
+                       <div>${order.itemsPrice.toFixed(2)}</div>
+                       <div>${order.shippingPrice.toFixed(2)}</div>
+                                   <div>${order.taxPrice}</div>
+                                   <div className="subtotal-value-total">${order.totalPrice.toFixed(2)}</div>
+                           
+                   </div></div>
+        
             
         </div>
                     
-                    </div>
-            </div>
         </div>
+            </div>
+       
     )
 }
 

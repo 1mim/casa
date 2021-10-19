@@ -3,7 +3,7 @@ import React from 'react'
 
 const CartItemsOnPOScreen = ({item}) => {
     return (
-        <div className="row-middle cart-item-nak-order">
+        <div className="cart-item-nak-order">
             <div className="cart-flush-left"><img src={item.image} alt={item.name} className="small" /></div>
 
             <div className="cart-space-even">

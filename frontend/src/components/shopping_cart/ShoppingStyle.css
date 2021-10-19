@@ -43,13 +43,13 @@
 
 .cart-item-nak-order {
     border-radius: 0.3rem;
-    border: 2px solid #D9CFC1;
-    /* flex-grow: 2; */
-    width: 89%;
+    border: 2px solid #BD280A;
+  
+    width: 90%;
     height: 45px;
     margin: 1rem 3rem;
     padding: 1em 2em 1em 1em;
-    /* width: 100%; */
+ 
     justify-content:space-around;
     display: flex;
     align-items:center;
@@ -97,7 +97,7 @@
     line-height: 1.5rem;
     font-size: 1rem;
     text-transform: uppercase;
-    color: #EECA81;
+    color: #D9CFC1;
 }
 
 .cart-item-price {
@@ -367,14 +367,15 @@ button.browse:active {
 
 .address-details {
     border-radius: 0.3rem;
-    border: 1px solid #D9CFC1;
+    border: 2px solid #BD280A;
     /* flex-grow: 2; */
-    width: 91%;
-    height: 45px;
+    display: inline-block;
+    width: 95%;
+    /* height: 45px; */
     margin: 1rem 3rem;
-    padding: 1em;
-    /* width: 100%; */
-    justify-content:space-around;
+    margin-bottom: 3rem;
+    padding: 1em 0em 1em 1em;
+    /* justify-content:space-around; */
     /* display: flex; */
     /* align-items:center; */
     flex-shrink: 1;

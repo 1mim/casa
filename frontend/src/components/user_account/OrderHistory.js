@@ -53,12 +53,3 @@ const OrderHistory = (props) => {
 }
 
 export default OrderHistory
-
-
-/* <div><Link to={`/orderdetails/${order._id}`}>{order._id.substring(0, 10)}</Link></div>
-                            <div>{order.createdAt.substring(0, 10)}</div>
-                            <div>${order.totalPrice.toFixed(2)}</div>
-                            <div>{order.isPaid? order.paidAt.substring(0, 10): 'No'}</div>
-                            <div>{order.isDelivered? order.paidAt.substring(0, 10): 'No'}</div>
-                            
-                            </div> */
