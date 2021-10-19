@@ -185,7 +185,7 @@ button.continue:hover {
     color:#28050A;
     border-color:#D9CFC1;
     background-color: #D9CFC1;
-    cursor: pointer;
+    cursor:none;
 }
     
 button.continue:active {

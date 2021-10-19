@@ -27,7 +27,8 @@ body {
 
 img{
     /* filter: saturate(110%); */
-    filter: brightness(1.1);
+    filter: brightness(1.05);
+    /* filter: contrast(1.1); */
 }
 
 img.index {
