@@ -4,6 +4,7 @@ import ErrorMessage from '../modals/ErrorMessage';
 import LoadingSpinner from '../modals/LoadingSpinner';
 import { Link } from 'react-router-dom';
 import { listUserOrder } from '../redux/actions/orderActions';
+import EachHistory from './EachHistory';
 
 const OrderHistory = (props) => {
 
@@ -23,33 +24,28 @@ const OrderHistory = (props) => {
             error? <ErrorMessage variant="danger">{error}</ErrorMessage>
             : (
             <div className="">
-                 <div className="row-middle">
-                <div className="cart-space-even">
+                
+                 <div className="inlineitemslah historyheader">
+               
                         <div>ID</div>
                         <div>DATE</div>
                         <div>TOTAL</div>
                         <div>PAID</div>
                         <div>DELIVERED</div>
         
-                    </div>
+                    
                             </div>
                             
                             <div className="">
                                 <div className="deetswrap">
-                                <div className="historydeeets">
+                                
                     {orders.map((order) => (
-                        <div key={order._id}>
+                       <Link to={`/orderdetails/${order._id}`}><EachHistory key={order._id} order={order}/> </Link>
                         
-                            <div><Link to={`/orderdetails/${order._id}`}>{order._id.substring(0, 10)}</Link></div>
-                            <div>{order.createdAt.substring(0, 10)}</div>
-                            <div>${order.totalPrice.toFixed(2)}</div>
-                            <div>{order.isPaid? order.paidAt.substring(0, 10): 'No'}</div>
-                            <div>{order.isDelivered? order.paidAt.substring(0, 10): 'No'}</div>
                             
-                            </div>
                     ))}
                                 
-                                </div></div></div>
+                                </div></div>
             </div>
             )}
         </div>
@@ -57,3 +53,12 @@ const OrderHistory = (props) => {
 }
 
 export default OrderHistory
+
+
+/* <div><Link to={`/orderdetails/${order._id}`}>{order._id.substring(0, 10)}</Link></div>
+                            <div>{order.createdAt.substring(0, 10)}</div>
+                            <div>${order.totalPrice.toFixed(2)}</div>
+                            <div>{order.isPaid? order.paidAt.substring(0, 10): 'No'}</div>
+                            <div>{order.isDelivered? order.paidAt.substring(0, 10): 'No'}</div>
+                            
+                            </div> */
