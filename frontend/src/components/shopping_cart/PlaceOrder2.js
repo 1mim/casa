@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import { PayPalButton } from 'react-paypal-button-v2';
 import { useDispatch, useSelector } from 'react-redux'
 import ErrorMessage from '../modals/ErrorMessage';
@@ -8,7 +8,7 @@ import { detailsOrder, payOrder } from '../redux/actions/orderActions';
 import { ORDER_CREATE_RESET, ORDER_PAY_RESET } from '../redux/constants/orderConstants';
 import CartItemsOnPOScreen from '../shopping_cart/CartItemsOnPOScreen';
 import CheckoutSteps from './CheckoutSteps';
-
+import { gsap, Power2 } from 'gsap';
 
 const PlaceOrder2 = (props) => {
     const orderPay = useSelector(state => state.orderPay);
@@ -20,6 +20,12 @@ const PlaceOrder2 = (props) => {
 
     const orderDetails = useSelector(state => state.orderDetails);
     const { order, loading, error } = orderDetails;
+
+    const tl = useRef()
+    const sidebar = useRef()
+    const stagger = useRef()
+    const stagger2 = useRef()
+
     
     useEffect(() => {
         const addPayPalScript = async () => {
@@ -40,13 +46,35 @@ const PlaceOrder2 = (props) => {
             if (!order.isPaid) {
                 if (!window.paypal) {
                     addPayPalScript();
+                    
                 } else {
                     setSdkReady(true);
                 }
             } 
         }
-    }, [dispatch, order, orderId, sdkReady, props.history, successPay]);
         
+
+    }, [dispatch, order, orderId, sdkReady, props.history, successPay]);
+    
+useEffect(() => {
+    tl.current = gsap.timeline()
+    .from(sidebar.current, {
+        opacity: 0,
+        width: 0,
+        ease: Power2.easeOut,
+        duration:0.4,
+    })
+    gsap.from(stagger.current, {
+        opacity: 0,
+        ease: Power2.easeIn,
+    
+    })
+    gsap.from(stagger2.current, {
+        opacity: 0,
+        ease: Power2.easeIn,
+    })
+}, [])
+
     const handleSuccessPayment = (paymentResult) => {
         dispatch(payOrder(order, paymentResult))
         props.history.push(`/success/${order._id}`);
@@ -61,10 +89,10 @@ const PlaceOrder2 = (props) => {
                     <div>
                     <CheckoutSteps step2 step3 />
                    
-                            <div className="container-cart ">
+                            <div className="container-cart">
                                 
                             <div className="cat-title">Order Items</div>
-                            <div className="">
+                            <div className="" ref={stagger}>
                           
                                 {order.orderItems.map((item) => (
                                     <CartItemsOnPOScreen key={item.product} item={item} />
@@ -73,7 +101,7 @@ const PlaceOrder2 = (props) => {
                             
                             </div></div><br/>
                             <div className="cat-title">Delivery Details</div>
-                            <div className="address-details">
+                            <div className="address-details" ref={stagger2}>
                                 <div>
                                 <span className="address-details-bold ">Recipient:</span> {order.shippingAddress.fullName} <br />
                                 <span className="address-details-bold ">Address:</span> {order.shippingAddress.address},
@@ -87,7 +115,7 @@ const PlaceOrder2 = (props) => {
 
                     </div>
                     
-                <div className="flex-item-shopping">
+                <div className="flex-item-shopping" ref={sidebar}>
                    
                             <div className="fixed-elements">
             

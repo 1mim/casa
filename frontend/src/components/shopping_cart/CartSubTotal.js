@@ -1,9 +1,24 @@
-import React from 'react'
+import React, { useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom'
+import { gsap, Power2 } from 'gsap';
 
 const CartSubTotal = ({ cartItems, checkoutHandler }) => {
+
+    const tl = useRef()
+    const section = useRef()
+
+    useEffect(() => {
+
+        tl.current = gsap.timeline()
+        .from(section.current, {
+            opacity: 0,
+            x: 100,
+            ease: Power2.easeOut,
+        })
+    }, [])
+    
     return (
-        <div className="fixed-elements">
+        <div className="fixed-elements" ref={section}>
                 <div className="order-sum-text">Order Summary</div>
         
         <div className="subtotal-grid ">

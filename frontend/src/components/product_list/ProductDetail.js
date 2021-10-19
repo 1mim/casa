@@ -1,9 +1,10 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useRef } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 import ErrorMessage from '../modals/ErrorMessage';
 import LoadingSpinner from '../modals/LoadingSpinner';
 import { detailsProduct } from '../redux/actions/productActions';
+import { gsap, Power2 } from 'gsap';
 
 const ProductDetail = (props) => {
     const dispatch = useDispatch()
@@ -12,10 +13,41 @@ const ProductDetail = (props) => {
 
     const productDetails = useSelector((state) => state.productDetails);
     const { loading, error, product } = productDetails;
+ 
+    const tl = useRef()
+    const imagefull = useRef(null)
+    const content = useRef()
 
     useEffect(() => {
-        dispatch(detailsProduct(id))
+        dispatch(detailsProduct(id));
+
+        tl.current = gsap.timeline()
+        gsap.to(content.current, {
+            opacity: 0,
+            y: 200,
+            // width:0,
+            duration: 1,
+            ease: Power2.easeIn,
+        })
+
     }, [dispatch, id])
+
+   
+    // useEffect(() => {
+    //     tl.current = gsap.timeline()
+    //     .from(imagefull.current, {
+    //         opacity: 0,
+    //         y: 800,
+    //         duration:1,
+    //         ease: Power2.easeIn,
+    //     })
+    //     .from(content.current, {
+    //         opacity: 0,
+    //         x: 100,
+    //         duration:1,
+    //         ease: Power2.easeIn,
+    //     })
+    // }, [])
 
     const handleQtyChange = (e) => {
         setQty(e.target.value)
@@ -34,10 +66,10 @@ const ProductDetail = (props) => {
             
              <div className="">
             <div className="flex-container-deets">
-            <div className="detImgItem">
+            <div className="detImgItem" ref={imagefull}>
             <img className="highlight" src={product.image} alt={product.name} />
             </div>
-                <div className="detOfItem">
+                <div className="detOfItem" ref={content}>
                 <Link to="/"><div className="back-store"><i class="fa fa-arrow-circle-left"></i> Back to store </div></Link><br/>
                 <div className="producttype">{product.type}</div>
                 <div className="name"> {product.name} </div>

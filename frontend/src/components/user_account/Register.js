@@ -1,9 +1,10 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import ErrorMessage from '../modals/ErrorMessage';
 import LoadingSpinner from '../modals/LoadingSpinner';
 import { register } from '../redux/actions/userActions';
+import { gsap, Power2 } from 'gsap';
 
 const Register = (props) => {
   const dispatch = useDispatch()
@@ -26,11 +27,22 @@ const Register = (props) => {
       dispatch(register(name, email, password))
     }
   }
-
+    
+    const tl = useRef()
+    const stagger = useRef()    
+    
   useEffect(() => {
       if (userInfo) {
           props.history.push(redirect)
       }
+      tl.current = gsap.timeline()
+        .from(stagger.current, {
+            opacity: 0,
+            // y: 100,
+            duration: 1,
+            ease: Power2,
+            // delay:1,
+        })
   }, [props.history, redirect, userInfo])
 
   return (
@@ -38,7 +50,7 @@ const Register = (props) => {
           <div className="container-cart ">
           <div className="cat-title">Create an Account</div>
 
-          <form className="borang-address" onSubmit={handleSubmit}>
+          <form className="borang-address" onSubmit={handleSubmit} ref={stagger}>
 
               
               {loading && <LoadingSpinner />}

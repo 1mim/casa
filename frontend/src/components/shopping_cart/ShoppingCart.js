@@ -1,10 +1,11 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useRef } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { addToCart, removeFromCart } from '../redux/actions/cartActions';
 import CartItems from './CartItems';
 import CartSubTotal from './CartSubTotal';
 import { Link } from 'react-router-dom';
 import "./ShoppingStyle.css";
+import { gsap, Power2 } from 'gsap';
 
 const ShoppingCart = (props) => {
     const dispatch = useDispatch()
@@ -14,10 +15,28 @@ const ShoppingCart = (props) => {
     const cart = useSelector(state => state.cart);
     const { cartItems } = cart;
 
+    const tl = useRef()
+    const sidebar = useRef()
+    const stagger = useRef()
+
     useEffect(() => {
         if (id) {
             dispatch(addToCart(id, qty))
         }
+
+        tl.current = gsap.timeline()
+        .from(sidebar.current, {
+            opacity: 0,
+            width: 0,
+            ease: Power2.easeOut,
+            duration:0.5,
+        })
+            .from(stagger.current, {
+                opacity: 0,
+                // y: 100,
+                duration: 1,
+                ease: Power2.easeIn,
+        })
     }, [dispatch, id, qty])
 
     const removeFromCartHandler = (id) => {
@@ -34,7 +53,7 @@ const ShoppingCart = (props) => {
               
             <div className="">
                 <div className="cat-title">Shopping Cart</div>
-                <div className="container-cart">
+                <div className="container-cart" ref={stagger}>
                 {cartItems.length === 0 ?
                     (<div className="empty-cart">Cart is empty. <Link to="/">Browse our exclusive collection.</Link></div>) :
                     (cartItems.map((item) => (
@@ -43,7 +62,7 @@ const ShoppingCart = (props) => {
                 )
                 }</div></div>
             
-            <div className="flex-item-shopping">
+            <div className="flex-item-shopping" ref={sidebar}>
                 <CartSubTotal cartItems={cartItems} checkoutHandler={checkoutHandler}/>
             </div>
           

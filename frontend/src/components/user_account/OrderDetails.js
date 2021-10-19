@@ -1,10 +1,11 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useRef } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import ErrorMessage from '../modals/ErrorMessage';
 import LoadingSpinner from '../modals/LoadingSpinner';
 import { detailsOrder } from '../redux/actions/orderActions';
 import CartItemsOnPOScreen from '../shopping_cart/CartItemsOnPOScreen';
 // import "../shopping_cart/ShoppingStyle.css"
+import { gsap, Power2 } from 'gsap';
 
 const OrderDetails = (props) => {
     const dispatch = useDispatch()
@@ -12,10 +13,31 @@ const OrderDetails = (props) => {
 
     const orderDetails = useSelector(state => state.orderDetails);
     const { order, loading, error } = orderDetails;
-    
+
+
     useEffect(() => {
         dispatch(detailsOrder(orderId));
-    }, [dispatch, orderId])
+    }, [dispatch, orderId]);
+
+    // const tl = useRef()
+    const appearright = useRef()
+    const appearlist = useRef()
+
+    useEffect(() => {
+        // tl.current = gsap.timeline()
+        gsap.from(appearright.current, {
+            opacity: 0,
+            width: 0,
+            ease: Power2.easeOut,
+            duration:0.5,
+        })
+        gsap.from(appearlist.current, {
+            opacity: 0,
+            // y: 100,
+            ease: Power2.easeOut,
+            duration:1,
+        })
+    }, [])
 
     return loading ? (<LoadingSpinner />) :
         error ? (<ErrorMessage variant="danger">{error}</ErrorMessage>)
@@ -27,7 +49,7 @@ const OrderDetails = (props) => {
                         
                         <div className="container-cart ">
                                 <div className="cat-title">Order Items</div>
-                                <div className="">
+                                <div className="" ref={appearlist}>
                               
                                     {order.orderItems.map((item) => (
                                         <CartItemsOnPOScreen key={item.product} item={item} />
@@ -68,7 +90,7 @@ const OrderDetails = (props) => {
                     </div>
 
                 
-                <div className="his-summary-section">
+                <div className="his-summary-section" ref={appearright}>
                 
                 <div className="">
         

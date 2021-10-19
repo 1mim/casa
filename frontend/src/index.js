@@ -4,12 +4,15 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { Provider } from 'react-redux';
-import store from "./components/redux/store"
+import store from "./components/redux/store";
+import MouseContextProvider from "./components/custom_cursor/mouse-context";
 
 ReactDOM.render(
   <Provider store={store}>
-  <React.StrictMode>
+    <React.StrictMode>
+    <MouseContextProvider>
     <App />
+    </MouseContextProvider>
     </React.StrictMode>
     </Provider>,
   document.getElementById('root')

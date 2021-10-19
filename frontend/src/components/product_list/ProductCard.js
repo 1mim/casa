@@ -16,21 +16,24 @@ const ProductCard = ({ product }) => {
         .from(image.current, {
             opacity: 0,
             // x: 100,
+            duration: 0.2,
             ease: Power2.easeIn,
         })
         .from(infoAni.current, {
             x: -200,
             opacity: 0,
             duration: 0.5,
-            ease: Power2.easeIn,
+            ease: Power2.easeOut,
         })
         .from(content.current, {
-            opacity:0,
+            opacity: 0,
+            ease: Power2.easeOut,
         })
         .from(namasenget.current, {
             y: 200,
             opacity: 0,
             ease: Power2.easeInOut,
+            duration:0.6,
         })
     }, [])
 

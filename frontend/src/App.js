@@ -1,7 +1,6 @@
-import React from 'react';
+import React, {useEffect, useRef, useContext } from 'react';
 import { useSelector } from 'react-redux';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-
 
 import './App.css';
 import NavBar from './components/NavBar';
@@ -17,6 +16,14 @@ import OrderDetails from './components/user_account/OrderDetails';
 import Register from './components/user_account/Register';
 import UserAccount from './components/user_account/UserAccount';
 
+//custom cursor
+import DotRing from './components/custom_cursor/DotRing'
+import { MouseContext } from "./components/custom_cursor/mouse-context";
+
+
+import { gsap, Power3 } from 'gsap'
+
+
 function App() {
 
   const cart = useSelector(state => state.cart);
@@ -24,12 +31,24 @@ function App() {
   const userLogin = useSelector((state) => state.userLogin);
   const { userInfo } = userLogin;
 
+  const { cursorType, cursorChangeHandler } = useContext(MouseContext);
+
+  const smooth = useRef()
+
+  useEffect(() => {
+    gsap.to(smooth.current, {
+      visibility: 'visible',
+      ease: Power3.easeIn
+    }, 2)
+  }, [smooth])
 
   return (
     <Router>
-    <div className="">
+      <div className="appear" ref={smooth}>
+        <DotRing />
         <header><NavBar cartItems={cartItems} userInfo={userInfo}/></header>
-        <main>
+        <main onMouseEnter={() => cursorChangeHandler("hovered")}
+          onMouseLeave={() => cursorChangeHandler("")}>
           <Switch>
             <Route exact path="/" component={ProductCatalogue} />
             <Route exact path="/product/:id" component={ProductDetail} />

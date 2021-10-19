@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useRef } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import ErrorMessage from '../modals/ErrorMessage';
 import LoadingSpinner from '../modals/LoadingSpinner';
@@ -6,6 +6,7 @@ import { savePaymentMethod, saveShippingAddress } from '../redux/actions/cartAct
 import { createOrder } from '../redux/actions/orderActions';
 // import { ORDER_CREATE_RESET } from '../redux/constants/orderConstants';
 import CheckoutSteps from './CheckoutSteps'
+import { gsap, Power2 } from 'gsap';
 
 const DeliveryInfo2 = (props) => {
     const userLogin = useSelector(state => state.userLogin)
@@ -60,11 +61,29 @@ const DeliveryInfo2 = (props) => {
         dispatch(createOrder({ ...cart, orderItems: cart.cartItems }));
     }
 
+    const tl = useRef()
+    const sidebar = useRef()
+    const stagger = useRef() 
+
     useEffect(() => {
         if (success) {
             props.history.push(`/placeorder/${order._id}`);
             // dispatch({ type: ORDER_CREATE_RESET });
         }
+        tl.current = gsap.timeline()
+        .from(sidebar.current, {
+            opacity: 0,
+            width: 0,
+            ease: Power2.easeOut,
+            duration:0.4,
+        })
+        .from(stagger.current, {
+            opacity: 0,
+            // y: 100,
+            duration: 1,
+            ease: Power2.easeIn,
+            // delay:1,
+        })
     }, [dispatch, order, props.history, success])
 
 
@@ -76,7 +95,7 @@ const DeliveryInfo2 = (props) => {
                     <div className="cat-title">Delivery Details</div>
                     
                 <div className="container-cart ">
-            <form className="borang-address" onSubmit={handlePlaceOrder}>
+            <form className="borang-address" onSubmit={handlePlaceOrder} ref={stagger}>
                
                 <div>
                     <label htmlFor="fullName" className="isiborang">Full Name</label>
@@ -148,7 +167,7 @@ const DeliveryInfo2 = (props) => {
 {/*             
             order summary */}
 
-            <div className="flex-item-shopping">
+            <div className="flex-item-shopping" ref={sidebar}>
                    <div className="fixed-elements">
                    <div className="order-sum-text">Order Summary</div>
                        
