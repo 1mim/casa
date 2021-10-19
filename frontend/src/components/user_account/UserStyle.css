@@ -1,0 +1,52 @@
+.userpage-container {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-evenly; 
+    padding: 0rem;
+    margin-top: 2rem;
+    list-style: none;
+    gap: 0rem 2rem;   
+    /* height: 100vh; */
+
+}
+
+.userdeets-section {
+    padding: 2rem;
+    width: 20%;
+    height: 20rem;
+    color: white;
+    background-color: #A77E58;
+    font-size: 1em;
+    margin-right: auto;
+    margin-right: 0.5rem;
+    order: 1;
+    display: flex;
+}
+
+.user-history {
+    display: flex;
+    width: 50rem;
+    flex-flow: column;
+    order: 2;
+    /* align-items: stretch; */
+}
+
+.deetswrap {
+    display: flex;
+    align-items: flex-start;
+}
+
+.historydeeets {
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    justify-content:space-around;
+    display: inline-block;
+    align-items:center;
+    flex-shrink: 1;
+    /* margin: 0 0 0 5em; */
+    justify-content:space-evenly;
+    flex-grow: 1;
+    /* background-color: lavender; */
+    border-radius: 0.3rem;
+    border: 1px solid #D9CFC1;
+    width:100%;
+}

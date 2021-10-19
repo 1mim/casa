@@ -38,7 +38,7 @@ function App() {
             <Route exact path="/placeorder/:id" component={PlaceOrder2} />
             <Route exact path="/success/:id" component={OrderConfirmed} />
             <PrivateRoute path="/account" component={UserAccount} />
-            <Route exact path="/account/orderdetails/:id" component={OrderDetails} />
+            <PrivateRoute exact path="/orderdetails/:id" component={OrderDetails} />
       </Switch>
       </main>
       </div>

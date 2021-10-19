@@ -15,8 +15,9 @@
     width: 20%;
     /* height: 450px;  */
     /* margin-top: 10px; */
-    color: white;
-    background-color: #BA3F1D;
+    /* color: white; */
+    background-color: #BD280A;
+    /* background-color: #640511; */
     font-size: 1em;
     margin-top: -10%;
     margin-left: auto;
@@ -57,7 +58,9 @@
 
 .cart-item {
     border-radius: 0.3rem;
-    border: 1px solid #D9CFC1;
+    /* border: 1px solid #D9CFC1; */
+    border: 1px solid #BD280A;
+    /* border: 1px solid #EECA81; */
     /* flex-grow: 2; */
     width: 100%;
     height: 45px;
@@ -94,6 +97,7 @@
     line-height: 1.5rem;
     font-size: 1rem;
     text-transform: uppercase;
+    color: #EECA81;
 }
 
 .cart-item-price {
@@ -109,9 +113,11 @@
     margin-top: 1em;
     text-align: center;
     width:95%;
-    color:white;
+    color: tan;
+    
     /* align-self:center; */
 }
+
 
 .subtotal-grid {
     grid-template-columns: 1fr 1fr;
@@ -151,6 +157,8 @@
     line-height: 2rem;
     font-size: 1.5rem;
     margin-bottom: 1rem;
+    /* color:#EECA81; */
+    color: tan;
     /* text-transform: uppercase; */
 
 }
@@ -174,7 +182,7 @@ button.continue {
 }
 
 button.continue:hover {
-    color:#081c15;
+    color:#28050A;
     border-color:#D9CFC1;
     background-color: #D9CFC1;
     cursor: pointer;
@@ -194,6 +202,7 @@ button.continue:active {
     letter-spacing: 0.2rem;
     max-width: 50%;
     margin: 0 3rem;
+    color: #BD280A;
     
 }
 
@@ -207,7 +216,7 @@ button.continue:active {
 
 .borang-address {
     border-radius: 0.3rem;
-    border: 2px solid #D9CFC1;
+    border: 2px solid #BD280A;
     /* flex-grow: 2; */
     width: 80%;
     /* height: 45px; */
@@ -225,7 +234,7 @@ input.isiborang {
     display:inline-block;
     padding:1.45em 3em;
     border:none;
-    border-bottom:1px solid #D9CFC1;
+    border-bottom:1px solid #AF8D86;
     margin:0.3em 0.3em 1em 0;
     box-sizing: border-box;
     text-decoration:none;
@@ -247,6 +256,7 @@ label.isiborang {
     font-size: 0.6rem;
     font-weight: 700;
     letter-spacing: 0.2rem;
+    color:tan;
     
 }
 

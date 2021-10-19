@@ -18,11 +18,11 @@ const CartSubTotal = ({ cartItems, checkoutHandler }) => {
                     
 </div></div>
                 
-                    <button type="button" onClick={checkoutHandler} className="add" disabled={cartItems.length === 0}>
-                        Proceed to Checkout
+                    <button type="button" onClick={checkoutHandler} className="continue" disabled={cartItems.length === 0}>
+                        Checkout
                     </button>
                 
-              <div className="cont-browse"> <Link to ="/">Continue Browsing</Link> </div>
+                    <Link to ="/"> <div className="cont-browse"> Continue Browsing </div></Link>
         
         </div>
     )

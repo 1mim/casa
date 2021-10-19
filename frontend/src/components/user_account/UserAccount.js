@@ -1,8 +1,9 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { detailsUser } from '../redux/actions/userActions';
-import AccountDetails from './AccountDetails'
-import OrderHistory from './OrderHistory'
+import AccountDetails from './AccountDetails';
+import OrderHistory from './OrderHistory';
+import './UserStyle.css';
 
 const UserAccount = (props) => {
 
@@ -20,16 +21,15 @@ const UserAccount = (props) => {
 
 
     return (
-        <div className="row top">
-            <p>This is user account page.</p>
-            <div className="col-1">
-                {userInfo.name}
+        <div>
+        <div className="userpage-container">
+            
+            <div className="userdeets-section">
                 <AccountDetails user={user} loading={loading} error={error}/>
             </div>
-            <div className="col-2">
-                <h1>Order History</h1>
+            <div className="user-history">
                 <OrderHistory /> </div>
-        </div>
+        </div></div>
     )
 }
 

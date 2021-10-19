@@ -38,7 +38,7 @@ const ProductDetail = (props) => {
             <img className="highlight" src={product.image} alt={product.name} />
             </div>
                 <div className="detOfItem">
-                <div><Link to="/"><i class="fa fa-arrow-circle-left"></i> Back to store</Link> </div><br/>
+                <Link to="/"><div className="back-store"><i class="fa fa-arrow-circle-left"></i> Back to store </div></Link><br/>
                 <div className="producttype">{product.type}</div>
                 <div className="name"> {product.name} </div>
                                         <div className="price">${product.price.toFixed(2)}</div>

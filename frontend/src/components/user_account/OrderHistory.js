@@ -18,35 +18,39 @@ const OrderHistory = (props) => {
 
     return (
         <div>
-            <p>List of order History here</p>
+            <div className="name">Order History</div>
             {loading ? <LoadingSpinner /> :
             error? <ErrorMessage variant="danger">{error}</ErrorMessage>
             : (
-            <table className="table">
-                <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>DATE</th>
-                        <th>TOTAL</th>
-                        <th>PAID</th>
-                        <th>DELIVERED</th>
+            <div className="">
+                 <div className="row-middle">
+                <div className="cart-space-even">
+                        <div>ID</div>
+                        <div>DATE</div>
+                        <div>TOTAL</div>
+                        <div>PAID</div>
+                        <div>DELIVERED</div>
         
-                    </tr>
-                </thead>
-                <tbody>
-                    {orders.map((order) => (
-                        <tr key={order._id}>
-                        
-                            <td><Link to={`/account/orderdetails/${order._id}`}>{order._id.substring(0, 10)}</Link></td>
-                            <td>{order.createdAt.substring(0, 10)}</td>
-                            <td>${order.totalPrice.toFixed(2)}</td>
-                            <td>{order.isPaid? order.paidAt.substring(0, 10): 'No'}</td>
-                            <td>{order.isDelivered? order.paidAt.substring(0, 10): 'No'}</td>
+                    </div>
+                            </div>
                             
-                            </tr>
+                            <div className="">
+                                <div className="deetswrap">
+                                <div className="historydeeets">
+                    {orders.map((order) => (
+                        <div key={order._id}>
+                        
+                            <div><Link to={`/orderdetails/${order._id}`}>{order._id.substring(0, 10)}</Link></div>
+                            <div>{order.createdAt.substring(0, 10)}</div>
+                            <div>${order.totalPrice.toFixed(2)}</div>
+                            <div>{order.isPaid? order.paidAt.substring(0, 10): 'No'}</div>
+                            <div>{order.isDelivered? order.paidAt.substring(0, 10): 'No'}</div>
+                            
+                            </div>
                     ))}
-                </tbody>
-            </table>
+                                
+                                </div></div></div>
+            </div>
             )}
         </div>
     )

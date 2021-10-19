@@ -1,5 +1,7 @@
 body {
-    background-color: #081c15;
+    /* background-color: #0B1804; */
+    background-color: #28050A;
+    /* background-color: #180005; */
       color:#D9CFC1;
 }
 
@@ -91,6 +93,8 @@ max-width: 100%;
     margin: 1em 2em;
     text-transform: uppercase;
     letter-spacing: 0.4rem;
+    /* color: #EECA81; */
+    color: #AF8D86;
 }
 
 .name {
@@ -104,6 +108,7 @@ max-width: 100%;
     text-transform: uppercase;
     letter-spacing: 0.2rem;
     font-size: 0.6rem;
+    color: #EECA81;
 }
 
 .price {
@@ -114,9 +119,18 @@ max-width: 100%;
 
 .description {
     font-size: 0.9rem;
+    color: #AF8D86;
 }
 
 .discover {
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    letter-spacing: 0.1rem;
+    
+}
+
+.back-store {
+    color:#BD280A;
     text-transform: uppercase;
     font-size: 0.8rem;
     letter-spacing: 0.1rem;
@@ -136,7 +150,8 @@ max-width: 100%;
 }
 
 .infobox {
-    background-color: #BA3F1D;
+    /* background-color: #BA3F1D; */
+    background-color: #BD280A;
     width:45%;
     padding:1.5rem;
     position: relative;
@@ -162,9 +177,9 @@ button.add {
 }
 
 button.add:hover {
-    color:#081c15;
-    border-color:#D9CFC1;
-    background-color: #D9CFC1;
+    color:#D9CFC1;
+    border-color:#BD280A;
+    background-color: #BD280A;
     cursor: pointer;
 }
     
@@ -189,7 +204,8 @@ select {
     font-size: 0.7rem;
     display:inline-block;
     padding:0.6em 1em;
-    border:0.16em solid #D9CFC1;
+    border:0.16em solid #a8a8a8;
+    /* border:0.16em solid #BD280A; */
     margin:0.5em 1.5em 0.3em 0em;
     box-sizing: border-box;
     text-decoration:none;
@@ -212,16 +228,18 @@ select:focus:not(:focus-visible) {
   }
 
 .quantity {
-text-transform: uppercase;
-letter-spacing: 0.1rem;
-font-size: 0.6rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1rem;
+    font-size: 0.6rem;
+    color:tan;
 }
 
 .instock {
     text-transform: uppercase;
     letter-spacing: 0.1rem;
     font-size: 0.6rem;
-    color: #73BF73;
+    /* color: #BD280A; */
+    color: tan;
     }
 
 .deleteitem {
@@ -238,6 +256,7 @@ font-size: 0.6rem;
   }
   
   .accordion-item{
+      /* color: tan; */
     /* background-color: #00000000; */
     /* border-radius: .4rem; */
   }
@@ -248,10 +267,11 @@ font-size: 0.6rem;
 
 
 .accordion-link{
-    color: rgba(255,255,255,.8);
+    /* color: rgba(255,255,255,.8); */
+    color:tan;
     text-decoration: none;
     /* background-color: #000000; */
-    border-bottom: 1px solid #D9CFC1;;
+    border-bottom: 1px solid #BD280A;
     width: 100%;
     display: flex;
     align-items: center;
@@ -265,7 +285,7 @@ font-size: 0.6rem;
   }
 
   .accordion-link i{
-    color: #e7d5ff;
+    color: #BD280A;
     padding: .5rem;
     
   }
@@ -277,7 +297,7 @@ font-size: 0.6rem;
   }
   
   .accordion-link li{
-    color: rgba(255, 255, 255, 0.4);
+    color:#AF8D86;
     padding: 0 0 1px 5px;
   }
   .accordion-link div{
@@ -298,7 +318,7 @@ font-size: 0.6rem;
   
   
   .answer p{
-    color: #D9CFC1;
+    color: #AF8D86;
     font-size: 0.8rem;
     padding: 0.5em 0;
     
