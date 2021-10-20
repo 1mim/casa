@@ -65,7 +65,7 @@ router.post('/register', async (req, res) => {
 
 
 //updating user info
-router.put('/profile', isAuth, async (req, res) => {
+router.put('/update', isAuth, async (req, res) => {
     const user = await User.findById(req.user._id);
     if (user) {
         user.name = req.body.name || user.name;

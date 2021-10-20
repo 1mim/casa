@@ -86,7 +86,8 @@ const ProductCard = ({ product }) => {
             <div className="producttype" ref={content}>{product.type}</div>
             <div className="name" ref={content}> {product.name} </div>
             <div className="price" ref={content}>${product.price.toFixed(2)}</div>
-            <Link to={`/product/${product._id}`}><span className="discover" ref={content}>Find out More <i class="fa fa-arrow-circle-right"></i></span></Link>
+            {/* <Link to={`/product/${product._id}`}><span className="discover" ref={content} onMouseEnter={linkGlow} onMouseLeave={linkDim}>Find out More <i class="fa fa-arrow-circle-right"></i></span></Link> */}
+            <Link to={`/product/${product._id}`}><span className="discover" ref={content} >Find out More <i class="fa fa-arrow-circle-right"></i></span></Link>
        
                 </div>
                 <div className="textrotate" ref={namasenget} onMouseEnter={hoverName} onMouseLeave={hoverOutName}> {product.name} </div>

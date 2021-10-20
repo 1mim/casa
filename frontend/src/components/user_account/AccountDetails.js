@@ -3,6 +3,7 @@ import React from 'react'
 import ErrorMessage from '../modals/ErrorMessage';
 import LoadingSpinner from '../modals/LoadingSpinner';
 // import { detailsUser } from '../redux/actions/userActions';
+import { Link } from 'react-router-dom';
 
 const AccountDetails = ({user, loading, error}) => {
 
@@ -18,9 +19,9 @@ const AccountDetails = ({user, loading, error}) => {
                                         <div className="hello">Hello, {user.name}</div>
                                         <div>Email: {user.email}</div>
                                         <div>Password: ********</div>
-                                        {/* <div>
-                                            <button className="continue" type="submit">Edit</button>
-                                        </div> */}
+                                        <div><br/>
+                                          <Link to="/editaccount"> <button className="continue">Edit</button></Link>
+                                        </div>
                                     </>
                             )}
                         </div>

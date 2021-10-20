@@ -1,5 +1,5 @@
 import axios from "axios";
-import { USER_DETAILS_FAIL, USER_DETAILS_REQUEST, USER_DETAILS_SUCCESS, USER_LOGIN_FAIL, USER_LOGIN_REQUEST, USER_LOGIN_SUCCESS, USER_LOGOUT, USER_REGISTER_FAIL, USER_REGISTER_REQUEST, USER_REGISTER_SUCCESS, USER_UPDATE_REQUEST, USER_UPDATE_RESET, USER_UPDATE_SUCCESS } from "../constants/userConstants"
+import { USER_DETAILS_FAIL, USER_DETAILS_REQUEST, USER_DETAILS_SUCCESS, USER_LOGIN_FAIL, USER_LOGIN_REQUEST, USER_LOGIN_SUCCESS, USER_LOGOUT, USER_REGISTER_FAIL, USER_REGISTER_REQUEST, USER_REGISTER_SUCCESS, USER_UPDATE_FAIL, USER_UPDATE_REQUEST, USER_UPDATE_SUCCESS } from "../constants/userConstants"
 
 export const login = (email, password) => async (dispatch) => {
     dispatch({ type: USER_LOGIN_REQUEST, payload: { email, password } });
@@ -65,8 +65,8 @@ export const updateUserProfile = (user) => async (dispatch, getState) => {
     dispatch({ type: USER_UPDATE_REQUEST, payload: user });
     const { userLogin: { userInfo }, } = getState();
     try {
-        const { data } = await axios.put(`/user/profile`, user, {
-            header: { Authorization: `Bearer ${userInfo.token}` },
+        const { data } = await axios.put(`/user/update`, user, {
+            headers: { Authorization: `Bearer ${userInfo.token}` },
         });
         dispatch({ type: USER_UPDATE_SUCCESS, payload: data });
         dispatch({ type: USER_LOGIN_SUCCESS, payload: data });
@@ -77,7 +77,7 @@ export const updateUserProfile = (user) => async (dispatch, getState) => {
             error.response && error.response.data.message
                 ? error.response.data.message
                 : error.message;
-        dispatch({ type: USER_UPDATE_RESET, payload: message });
+        dispatch({ type: USER_UPDATE_FAIL, payload: message });
 
     }
 }

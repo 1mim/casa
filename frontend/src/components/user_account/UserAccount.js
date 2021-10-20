@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react'
+import React, { useEffect, useRef, useLayoutEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { detailsUser } from '../redux/actions/userActions';
 import AccountDetails from './AccountDetails';
@@ -21,7 +21,9 @@ const UserAccount = (props) => {
 
     useEffect(() => {
         dispatch(detailsUser(userInfo._id));
+    }, [dispatch, userInfo._id])
 
+    useLayoutEffect(() => {
         tl.current = gsap.timeline()
         .from(appearside.current, {
             opacity: 0,
@@ -35,15 +37,14 @@ const UserAccount = (props) => {
             ease: Power2.easeOut,
             duration:1,
         })
-    }, [dispatch, userInfo._id])
-
+    }, [])
 
     return (
         <div>
         <div className="userpage-container">
             
             <div className="userdeets-section" ref={appearside}>
-                <AccountDetails user={user} loading={loading} error={error}/>
+                    <AccountDetails user={user} loading={loading} error={error} />
             </div>
             <div className="user-history" ref={appearlist}>
                 <OrderHistory /> </div>

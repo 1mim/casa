@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useEffect, useState, useRef, useLayoutEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import ErrorMessage from '../modals/ErrorMessage';
@@ -30,6 +30,11 @@ const Login = (props) => {
         if (userInfo) {
             props.history.push(redirect)
         }
+        
+    }, [props.history, redirect, userInfo])
+
+    useLayoutEffect(() => {
+        
         tl.current = gsap.timeline()
         .from(stagger.current, {
             opacity: 0,
@@ -39,9 +44,7 @@ const Login = (props) => {
             // delay:1,
         })
         
-       
-          
-    }, [props.history, redirect, userInfo])
+    }, [])
 
     return (
         <div className="flex-container-shopping">
