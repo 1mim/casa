@@ -55,7 +55,7 @@ const ShoppingCart = (props) => {
                 <div className="cat-title">Shopping Cart</div>
                 <div className="container-cart" ref={stagger}>
                 {cartItems.length === 0 ?
-                    (<div className="empty-cart">Cart is empty. <Link to="/">Browse our exclusive collection.</Link></div>) :
+                    (<div className="empty-cart">Cart is empty. <Link to="/"><span className="empty-cart-bold">Browse our exclusive collection.</span></Link></div>) :
                     (cartItems.map((item) => (
                         <CartItems key={item.product} item={item} removeFromCartHandler={removeFromCartHandler} dispatch={dispatch}/>
                     ))

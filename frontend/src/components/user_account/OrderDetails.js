@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react'
+import React, { useEffect, useLayoutEffect, useRef } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import ErrorMessage from '../modals/ErrorMessage';
 import LoadingSpinner from '../modals/LoadingSpinner';
@@ -19,19 +19,19 @@ const OrderDetails = (props) => {
         dispatch(detailsOrder(orderId));
     }, [dispatch, orderId]);
 
-    // const tl = useRef()
+    const tl = useRef()
     const appearright = useRef()
     const appearlist = useRef()
 
-    useEffect(() => {
-        // tl.current = gsap.timeline()
-        gsap.from(appearright.current, {
+    useLayoutEffect(() => {
+        tl.current = gsap.timeline()
+        .from(appearright.current, {
             opacity: 0,
-            width: 0,
+            // width: 0,
             ease: Power2.easeOut,
-            duration:0.5,
+            duration:2,
         })
-        gsap.from(appearlist.current, {
+        .from(appearlist.current, {
             opacity: 0,
             // y: 100,
             ease: Power2.easeOut,

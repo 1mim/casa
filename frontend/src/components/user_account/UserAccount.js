@@ -48,7 +48,8 @@ const UserAccount = (props) => {
             </div>
             <div className="user-history" ref={appearlist}>
                 <OrderHistory /> </div>
-        </div></div>
+            </div>
+        </div>
     )
 }
 

@@ -73,7 +73,44 @@ const ProductCard = ({ product }) => {
         })
     }
 
+    // animate the infobox
+    const hoverInfo = ({ currentTarget }) => {
+        gsap.to(currentTarget, {
+            padding: "2rem",
+            duration: 0.6,
+            ease: Bounce,
+        })
+    }
 
+    const hoverOutInfo = ({ currentTarget }) => {
+        gsap.to(currentTarget, {
+            padding: "1.5rem",
+            duration: 1,
+            ease: Bounce,
+        })
+    }
+
+    //animate discover text
+
+    const hoverLink = ({ currentTarget }) => {
+        gsap.to(currentTarget, {
+            // fontSize: "0.85rem",
+            // fontWeight:"bold",
+            color: "white",
+            duration: 2,
+            ease: Bounce,
+        })
+    }
+
+    const hoverOutLink = ({ currentTarget }) => {
+        gsap.to(currentTarget, {
+            // fontSize: "0.7rem",
+            // fontWeight:"normal",
+            color: "#D9CFC1",
+            duration: 1,
+            ease: Bounce,
+        })
+    }
 
     return (
         <div className="">
@@ -82,12 +119,12 @@ const ProductCard = ({ product }) => {
             
                 <img src={product.image} alt={product.name} className="index" style={{ maxWidth: "100%" }} ref={image} onMouseEnter={hoverImage} onMouseLeave={hoverOut}/>
              
-            <div className="infobox" ref={infoAni}>
+            <div className="infobox" ref={infoAni} onMouseEnter={hoverInfo} onMouseLeave={hoverOutInfo}>
             <div className="producttype" ref={content}>{product.type}</div>
             <div className="name" ref={content}> {product.name} </div>
             <div className="price" ref={content}>${product.price.toFixed(2)}</div>
             {/* <Link to={`/product/${product._id}`}><span className="discover" ref={content} onMouseEnter={linkGlow} onMouseLeave={linkDim}>Find out More <i class="fa fa-arrow-circle-right"></i></span></Link> */}
-            <Link to={`/product/${product._id}`}><span className="discover" ref={content} >Find out More <i class="fa fa-arrow-circle-right"></i></span></Link>
+            <Link to={`/product/${product._id}`}><span className="discover" ref={content} onMouseEnter={hoverLink} onMouseLeave={hoverOutLink}>Find out More <i class="fa fa-arrow-circle-right"></i></span></Link>
        
                 </div>
                 <div className="textrotate" ref={namasenget} onMouseEnter={hoverName} onMouseLeave={hoverOutName}> {product.name} </div>

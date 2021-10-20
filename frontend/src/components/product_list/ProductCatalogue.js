@@ -5,6 +5,7 @@ import ErrorMessage from '../modals/ErrorMessage';
 import { useSelector, useDispatch } from 'react-redux'
 import { listProducts } from '../redux/actions/productActions'
 import "./Catalogue.css";
+import Footer from '../Footer';
 
 const ProductCatalogue = () => {
 
@@ -27,7 +28,8 @@ const ProductCatalogue = () => {
                 ))}
                 
                 </div>
-                }
+            }
+            <footer><Footer /></footer>
         </div>
     )
 }

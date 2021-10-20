@@ -1,10 +1,11 @@
-import React, { useEffect, useState, useRef } from 'react'
+import React, { useEffect, useState, useRef, useLayoutEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 import ErrorMessage from '../modals/ErrorMessage';
 import LoadingSpinner from '../modals/LoadingSpinner';
 import { detailsProduct } from '../redux/actions/productActions';
 import { gsap, Power2 } from 'gsap';
+import Footer from '../Footer';
 
 const ProductDetail = (props) => {
     const dispatch = useDispatch()
@@ -20,34 +21,24 @@ const ProductDetail = (props) => {
 
     useEffect(() => {
         dispatch(detailsProduct(id));
-
-        tl.current = gsap.timeline()
-        gsap.to(content.current, {
-            opacity: 0,
-            y: 200,
-            // width:0,
-            duration: 1,
-            ease: Power2.easeIn,
-        })
-
     }, [dispatch, id])
 
    
-    // useEffect(() => {
-    //     tl.current = gsap.timeline()
-    //     .from(imagefull.current, {
-    //         opacity: 0,
-    //         y: 800,
-    //         duration:1,
-    //         ease: Power2.easeIn,
-    //     })
-    //     .from(content.current, {
-    //         opacity: 0,
-    //         x: 100,
-    //         duration:1,
-    //         ease: Power2.easeIn,
-    //     })
-    // }, [])
+    useLayoutEffect(() => {
+        tl.current = gsap.timeline()
+        .from(imagefull.current, {
+            opacity: 0,
+            // y: 800,
+            duration:1,
+            ease: Power2,
+        })
+        .from(content.current, {
+            opacity: 0,
+            x: 100,
+            duration:1,
+            ease: Power2.easeIn,
+        })
+    }, [])
 
     const handleQtyChange = (e) => {
         setQty(e.target.value)
@@ -131,7 +122,8 @@ const ProductDetail = (props) => {
                                        
                                         
             </div></div>
-        </div>)}
+                            </div>)}
+                            <footer><Footer /></footer>
     </div>
        
     )

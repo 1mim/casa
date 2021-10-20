@@ -37,6 +37,7 @@
     position: fixed;
     padding-right: 2.5rem;
     height:100%;
+    
     /* background-color: #BD280A; */
     /* height: 100vh; */
 }
@@ -378,7 +379,7 @@ button.browse:active {
     border: 2px solid #BD280A;
     /* flex-grow: 2; */
     /* display: inline-block; */
-    width: 60%;
+    width: 95%;
     /* width: 50%; */
     /* height: 45px; */
     margin: 0rem 0rem 3rem 3rem;
@@ -389,7 +390,7 @@ button.browse:active {
     /* align-items:center; */
     flex-shrink: 1;
     font-size: 0.9rem;
-    position: absolute;
+    /* position: absolute; */
 }
 
 .address-details-bold {
@@ -399,6 +400,23 @@ button.browse:active {
 }
 
 .empty-cart{
-    margin:auto;
-    
+    margin: 3rem;
+    font-size: 1.5rem;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    /* font-weight: 100; */
+    color:#af8d86;
+}
+
+.empty-cart-bold{
+    font-size: 1.5rem;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-weight: 700;
+    /* background-color: #BD280A; */
+    /* padding:1em; */
+    color:#af8d86;
+}
+
+.empty-cart-bold:hover {
+    color: white;
+    transition: all 0.15s;
 }

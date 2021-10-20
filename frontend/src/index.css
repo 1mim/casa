@@ -18,8 +18,9 @@
 
 .logo {
   font-family: 'Ame';
-  font-size:1.2rem;
-  padding-left: 4em;
+  font-size:1.3rem;
+  padding-left: 3.5em;
+  color: #D9CFC1;
 }
 
 body {
@@ -33,10 +34,11 @@ body {
 }
 
 .navbar {
-  color: #D9CFC1;
+  color: tan;
   text-transform: uppercase;
   letter-spacing: 0.15rem;
-  font-size: 0.8rem;
+  font-size: 0.6rem;
+  
 }
 
 .row {
@@ -79,10 +81,10 @@ img.large {
 .badge {
   background-color: #d2b48c;
   color: #28050A;
-  border-radius: 70%;
-  padding: 0.05rem 0.4rem;
+  border-radius: 50%;
+  padding: 0.05rem 0.3rem;
   text-align: center;
-  font-size: 0.7rem;
+  font-size: 0.6rem;
   margin-left: -0.3rem;
   margin-right: 0.7rem;
 }
@@ -220,4 +222,20 @@ li {
   transform: translate3d(0, 0, 0);
   filter: sepia();
 
+}
+
+footer {
+  padding-top: 20px;
+  padding-bottom: 0px;
+  margin-bottom: 0px;
+  position:static;
+  bottom:0px;
+  width:100%;
+
+  color: #BD280A;
+  text-align:center;
+  text-transform: uppercase;
+  font-size: 0.6rem;
+  letter-spacing: 0.1rem;
+  flex-shrink: 0;
 }

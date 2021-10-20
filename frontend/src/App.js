@@ -19,6 +19,7 @@ import UserAccount from './components/user_account/UserAccount';
 
 import { gsap, Power3 } from 'gsap'
 import EditAccountDetails from './components/user_account/EditAccountDetails';
+// import Footer from './components/Footer';
 
 
 function App() {
@@ -57,7 +58,7 @@ function App() {
             <PrivateRoute path="/editaccount" component={EditAccountDetails} />
             <PrivateRoute exact path="/orderdetails/:id" component={OrderDetails} />
       </Switch>
-      </main>
+        </main>
       </div>
       </Router>
   );
