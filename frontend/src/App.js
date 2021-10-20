@@ -17,8 +17,8 @@ import Register from './components/user_account/Register';
 import UserAccount from './components/user_account/UserAccount';
 
 //custom cursor
-import DotRing from './components/custom_cursor/DotRing'
-import { MouseContext } from "./components/custom_cursor/mouse-context";
+// import DotRing from './components/custom_cursor/DotRing'
+// import { MouseContext } from "./components/custom_cursor/mouse-context";
 
 
 import { gsap, Power3 } from 'gsap'
@@ -31,7 +31,7 @@ function App() {
   const userLogin = useSelector((state) => state.userLogin);
   const { userInfo } = userLogin;
 
-  const { cursorType, cursorChangeHandler } = useContext(MouseContext);
+  // const { cursorType, cursorChangeHandler } = useContext(MouseContext);
 
   const smooth = useRef()
 
@@ -45,10 +45,11 @@ function App() {
   return (
     <Router>
       <div className="appear" ref={smooth}>
-        <DotRing />
+        {/* <DotRing /> */}
         <header><NavBar cartItems={cartItems} userInfo={userInfo}/></header>
-        <main onMouseEnter={() => cursorChangeHandler("hovered")}
-          onMouseLeave={() => cursorChangeHandler("")}>
+        <main>
+        {/* <main onMouseEnter={() => cursorChangeHandler("hovered")}
+          onMouseLeave={() => cursorChangeHandler("")}> */}
           <Switch>
             <Route exact path="/" component={ProductCatalogue} />
             <Route exact path="/product/:id" component={ProductDetail} />

@@ -115,10 +115,11 @@ useEffect(() => {
 
                     </div>
                     
-                <div className="flex-item-shopping" ref={sidebar}>
+                    <div className="flex-item-shopping " ref={sidebar}>
+                        
                    
                             <div className="fixed-elements">
-            
+          
                                 <div className="order-sum-text">Order Summary</div>
                                 <div className="subtotal-grid ">
                        <div className="subtotal-keys">
@@ -134,10 +135,10 @@ useEffect(() => {
                                    <div>${order.taxPrice}</div>
                                    <div className="subtotal-value-total">${order.totalPrice.toFixed(2)}</div>
                            
-                   </div></div>
+                                    </div></div>
                
                
-                {
+               <div> {
                     !order.isPaid && (
                         <div>
                                                 {!sdkReady ? (<LoadingSpinner />) :
@@ -149,7 +150,7 @@ useEffect(() => {
                                 )}
                                             </div>
                     )
-                }
+                }</div>
             
             
         </div>
