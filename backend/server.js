@@ -4,6 +4,7 @@ const connectDB = require("./config/db");
 const cataloguesRouter = require('./router/catalogueRouter');
 const userRouter = require('./router/userRouter');
 const orderRouter = require('./router/orderRouter')
+const path = require('path');
 
 connectDB();
 
@@ -28,8 +29,10 @@ app.use((err, req, res, next) => {
 
 const PORT = process.env.PORT || 5000;
 
-// if (process.env.NODE_ENV === 'production') {
-//     app.use(express.static('frontend/build'));
-// }
+app.use(express.static(path.resolve(__dirname, "./frontend/build")));
+
+app.get("*", function (req, res) {
+    res.sendFile(path.resolve(__dirname, "./frontend/build", "index.html"))
+});
 
 app.listen(PORT, () => console.log(`Server running on ${PORT}`));
