@@ -19,7 +19,7 @@ const OrderHistory = (props) => {
 
     return (
         <div>
-            <div className="name">Order History</div>
+            <div className="history-title">Order History</div>
             {loading ? <LoadingSpinner /> :
             error? <ErrorMessage variant="danger">{error}</ErrorMessage>
             : (

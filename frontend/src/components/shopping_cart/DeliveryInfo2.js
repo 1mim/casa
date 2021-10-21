@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from 'react'
+import React, { useEffect, useState, useRef, useLayoutEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import ErrorMessage from '../modals/ErrorMessage';
 import LoadingSpinner from '../modals/LoadingSpinner';
@@ -70,6 +70,9 @@ const DeliveryInfo2 = (props) => {
             props.history.push(`/placeorder/${order._id}`);
             // dispatch({ type: ORDER_CREATE_RESET });
         }
+    }, [dispatch, order, props.history, success])
+
+    useLayoutEffect(() => {
         tl.current = gsap.timeline()
         .from(sidebar.current, {
             opacity: 0,
@@ -84,8 +87,7 @@ const DeliveryInfo2 = (props) => {
             ease: Power2.easeIn,
             // delay:1,
         })
-    }, [dispatch, order, props.history, success])
-
+    }, [])
 
     return (
         

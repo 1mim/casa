@@ -96,7 +96,8 @@ const ProductCard = ({ product }) => {
         gsap.to(currentTarget, {
             // fontSize: "0.85rem",
             // fontWeight:"bold",
-            color: "white",
+            // color: "white",
+            // x:2,
             duration: 2,
             ease: Bounce,
         })
@@ -106,7 +107,8 @@ const ProductCard = ({ product }) => {
         gsap.to(currentTarget, {
             // fontSize: "0.7rem",
             // fontWeight:"normal",
-            color: "#D9CFC1",
+            // color: "#D9CFC1",
+            // x:0,
             duration: 1,
             ease: Bounce,
         })

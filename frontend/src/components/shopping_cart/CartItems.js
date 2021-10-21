@@ -21,7 +21,7 @@ const CartItems = ({ item, removeFromCartHandler, dispatch }) => {
                 </div>
             <div className="cart-flush-right">
                 <span className="deleteitem" onClick={() => removeFromCartHandler(item.product)}>
-                <i class="fa fa-times-circle" style={{color:'#BD280A'}}></i></span>
+                <i class="fa fa-times-circle" style={{color:'#a77e58'}}></i></span>
             </div>
         </div>
     )

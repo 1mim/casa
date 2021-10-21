@@ -30,7 +30,7 @@
     padding: 2rem;
     width: 20%;
     height: 20%;
-    color: white;
+    color: #d9cfc1;
     background-color: #BD280A;
     border-left: 5px solid tan;
     font-size: 1em;
@@ -60,7 +60,8 @@
     /* min-width:100%; */
     max-width: 93%;
     border-radius: 0.3rem;
-    border: 1px solid #BD280A;
+    border: 1px solid #af8d86;
+    color: #563635;
     padding: 1rem 0rem 1rem 2rem;
     margin: 1rem 0rem;
     font-size: 0.9rem;
@@ -69,10 +70,13 @@
 
 .historydeeets:hover {
     background-color: #BD280A;
+    border: 1px solid #BD280A;
+    color: #d9cfc1;
 }
 
 .historyheader {
     background-color: #BD280A;
+    color: #d9cfc1;
     padding: 0.5rem 0rem 0.5rem 2rem;
     margin: 2rem 0rem 1rem 0rem;
     font-family: "Ame";
@@ -99,4 +103,15 @@
     margin-left: 0.5rem;
     order: 1;
     display: flex;
+}
+
+.history-title {
+    font-family: "Ame";   
+    line-height: 2.8rem;
+    font-size: 1.7rem;
+    /* margin: 1em 2em; */
+    text-transform: uppercase;
+    letter-spacing: 0.4rem;
+    /* color: #EECA81; */
+    color: #a77e58;
 }

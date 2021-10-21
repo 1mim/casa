@@ -16,7 +16,6 @@ const ProductDetail = (props) => {
     const { loading, error, product } = productDetails;
  
     const tl = useRef()
-    const imagefull = useRef(null)
     const content = useRef()
 
     useEffect(() => {
@@ -26,16 +25,10 @@ const ProductDetail = (props) => {
    
     useLayoutEffect(() => {
         tl.current = gsap.timeline()
-        .from(imagefull.current, {
-            opacity: 0,
-            // y: 800,
-            duration:1,
-            ease: Power2,
-        })
         .from(content.current, {
             opacity: 0,
-            x: 100,
-            duration:1,
+            // x: 100,
+            duration:0.6,
             ease: Power2.easeIn,
         })
     }, [])
@@ -49,7 +42,7 @@ const ProductDetail = (props) => {
     }
 
     return (
-        <div>
+        <div ref={content}>
         {
             loading ? <LoadingSpinner></LoadingSpinner>
             : error ? <ErrorMessage variant="danger">{error}</ErrorMessage>
@@ -57,14 +50,14 @@ const ProductDetail = (props) => {
             
              <div className="">
             <div className="flex-container-deets">
-            <div className="detImgItem" ref={imagefull}>
+            <div className="detImgItem">
             <img className="highlight" src={product.image} alt={product.name} />
             </div>
-                <div className="detOfItem" ref={content}>
+                <div className="detOfItem">
                 <Link to="/"><div className="back-store"><i class="fa fa-arrow-circle-left"></i> Back to store </div></Link><br/>
-                <div className="producttype">{product.type}</div>
-                <div className="name"> {product.name} </div>
-                                        <div className="price">${product.price.toFixed(2)}</div>
+                <div className="producttypedeets">{product.type}</div>
+                <div className="name-deets"> {product.name} </div>
+                                        <div className="price-deets">${product.price.toFixed(2)}</div>
                                         <div>
                     {product.countInStock > 0 ? (
                         <span className="instock">In Stock</span>

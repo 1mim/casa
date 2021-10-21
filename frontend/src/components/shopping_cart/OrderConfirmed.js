@@ -2,6 +2,7 @@ import React, { useEffect, useRef } from 'react'
 import CheckoutSteps from './CheckoutSteps'
 // import { Link } from 'react-router-dom'
 import { gsap, Power2 } from 'gsap';
+import Footer from '../Footer';
 
 
 const OrderConfirmed = (props) => {
@@ -46,7 +47,8 @@ const OrderConfirmed = (props) => {
                     
 
                 </div>
-        </div></div>
+                <footer><Footer /></footer>            </div>
+</div>
     )
 }
 

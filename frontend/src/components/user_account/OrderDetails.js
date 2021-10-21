@@ -20,26 +20,22 @@ const OrderDetails = (props) => {
     }, [dispatch, orderId]);
 
     const tl = useRef()
-    const appearright = useRef()
-    const appearlist = useRef()
+    const content = useRef()
 
     useLayoutEffect(() => {
         tl.current = gsap.timeline()
-        .from(appearright.current, {
+        .from(content.current, {
             opacity: 0,
-            // width: 0,
-            ease: Power2.easeOut,
-            duration:2,
-        })
-        .from(appearlist.current, {
-            opacity: 0,
-            // y: 100,
-            ease: Power2.easeOut,
-            duration:1,
+            // x: 100,
+            duration:0.6,
+            ease: Power2.easeIn,
         })
     }, [])
 
-    return loading ? (<LoadingSpinner />) :
+    return (
+        <div ref={content}>
+{
+        loading ? (<LoadingSpinner />) :
         error ? (<ErrorMessage variant="danger">{error}</ErrorMessage>)
             : (
                 <div className="flex-container-shopping">
@@ -49,7 +45,7 @@ const OrderDetails = (props) => {
                         
                         <div className="container-cart ">
                                 <div className="cat-title">Order Items</div>
-                                <div className="" ref={appearlist}>
+                                <div className="">
                               
                                     {order.orderItems.map((item) => (
                                         <CartItemsOnPOScreen key={item.product} item={item} />
@@ -90,7 +86,7 @@ const OrderDetails = (props) => {
                     </div>
 
                 
-                <div className="his-summary-section" ref={appearright}>
+                <div className="his-summary-section">
                 
                 <div className="">
         
@@ -118,6 +114,8 @@ const OrderDetails = (props) => {
         </div>
             </div>
        
+            )
+            } </div>
     )
 }
 

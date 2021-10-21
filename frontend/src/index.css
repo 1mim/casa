@@ -20,7 +20,13 @@
   font-family: 'Ame';
   font-size:1.3rem;
   padding-left: 3.5em;
-  color: #D9CFC1;
+  /* color: #AF8D86; */
+  /* color: #AF8D86; */
+  color: #a77e58;
+}
+
+.logo:hover{
+  color: #a77e58;
 }
 
 body {
@@ -34,7 +40,7 @@ body {
 }
 
 .navbar {
-  color: tan;
+  color: #AF8D86;
   text-transform: uppercase;
   letter-spacing: 0.15rem;
   font-size: 0.6rem;
@@ -79,8 +85,8 @@ img.large {
 }
 
 .badge {
-  background-color: #d2b48c;
-  color: #28050A;
+  background-color: #AF8D86;
+  color: #fff;
   border-radius: 50%;
   padding: 0.05rem 0.3rem;
   text-align: center;
@@ -91,14 +97,14 @@ img.large {
 
 a {
   text-decoration: none;
-  color: #D9CFC1;
+  color: #AF8D86;
 }
 a:hover {
-  color: #D9CFC1;
+  color: #AF8D86;
 }
 
 .brand:hover {
-  color: #D9CFC1;
+  color: #a77e58;
 }
 
 .subtotal {
@@ -156,8 +162,8 @@ li {
   min-width: 12rem;
   padding: 1rem;
   z-index: 1;
-  background-color: tan;
-  color: #28050A;
+  background-color: #a77e58;
+  color: #D9CFC1;
   transition: all 0.5s ease;
 
   /* margin: 1em; */
@@ -202,7 +208,7 @@ li {
 /* checkout steps */
 
 .checkout-steps > div {
-  color: tan;
+  color: #AF8D86;
   flex: 1;
   padding: 1rem;
 }
@@ -232,7 +238,7 @@ footer {
   bottom:0px;
   width:100%;
 
-  color: #BD280A;
+  color: #AF8D86;
   text-align:center;
   text-transform: uppercase;
   font-size: 0.6rem;

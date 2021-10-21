@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react'
+import React, { useEffect, useLayoutEffect, useRef } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { addToCart, removeFromCart } from '../redux/actions/cartActions';
 import CartItems from './CartItems';
@@ -23,7 +23,9 @@ const ShoppingCart = (props) => {
         if (id) {
             dispatch(addToCart(id, qty))
         }
+    }, [dispatch, id, qty])
 
+    useLayoutEffect(() => {
         tl.current = gsap.timeline()
         .from(sidebar.current, {
             opacity: 0,
@@ -37,7 +39,7 @@ const ShoppingCart = (props) => {
                 duration: 1,
                 ease: Power2.easeIn,
         })
-    }, [dispatch, id, qty])
+    }, [])
 
     const removeFromCartHandler = (id) => {
         //delete action

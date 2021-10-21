@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { useEffect, useState, useRef } from 'react';
+import { useEffect, useState, useRef, useLayoutEffect } from 'react';
 import { PayPalButton } from 'react-paypal-button-v2';
 import { useDispatch, useSelector } from 'react-redux'
 import ErrorMessage from '../modals/ErrorMessage';
@@ -56,7 +56,7 @@ const PlaceOrder2 = (props) => {
 
     }, [dispatch, order, orderId, sdkReady, props.history, successPay]);
     
-useEffect(() => {
+    useLayoutEffect(() => {
     tl.current = gsap.timeline()
     .from(sidebar.current, {
         opacity: 0,
@@ -73,7 +73,9 @@ useEffect(() => {
         opacity: 0,
         ease: Power2.easeIn,
     })
-}, [])
+    }, [])
+
+
 
     const handleSuccessPayment = (paymentResult) => {
         dispatch(payOrder(order, paymentResult))
