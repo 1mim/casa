@@ -1,0 +1,144 @@
+/* landing banner */
+
+.landingcontainer {
+    position: relative;
+    text-align: center;
+    height: 100vh;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+img.landingpage {
+    object-fit: cover;
+    width: 100vmax;
+    height: 100vh;
+    max-width: 100%;
+  }
+
+.floating-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 75%;
+    font-family: "Ame";
+    font-size: 2.5rem;
+    line-height: 4rem;
+    color: white;
+    text-shadow: 2px 2px 10px #563635;
+    font-weight: 300;
+    text-transform: uppercase;
+    letter-spacing: 0.3rem;
+}
+
+/* about segment */
+
+.aboutcontainer {
+    position: relative;
+    height: 100vh;
+    padding-top:1em;
+    padding-bottom:1em;
+    color: #af8d86;
+}
+
+.aboutinfo {
+    position: relative;
+    font-family: "Ame";
+    font-size: 2rem;
+    line-height: 3.5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5rem;
+    font-weight: 500;
+    max-width: 80%;
+    margin: 0 auto;
+    top: 1em;
+    border-left: 10px solid #bd280a;
+    padding-left:1em;
+    padding-bottom: 1em;
+    
+    /* top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); */
+}
+
+.about {
+    text-transform: uppercase;
+    letter-spacing: 0.3rem;
+    font-size: 1rem;
+    font-family: 'Nunito Sans', sans-serif;
+}
+
+.orange {
+    color:#bd280a;
+}
+
+/* product highlight */
+.high1container {
+    position: relative;
+    text-align: center;
+    margin: auto;
+    /* padding-top:1em;
+    padding-bottom:1em; */
+    height: 100vh;
+    background-color: #a77e58;
+}
+
+.high2container {
+    position: relative;
+    text-align: center;
+    margin: auto;
+    /* padding-top:1em;
+    padding-bottom:1em; */
+    height: 100vh;
+    background-color: #af8d86;
+}
+
+.vertical-center {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    width:100%;
+  }
+
+img.highlight {
+    object-fit: cover;
+    width: 750px;
+    height: 421px;
+    max-width: 100%;
+
+  }
+
+.rotatehighlight {
+    transform: rotate(-90deg);
+    transform-origin: 0 0;
+    position: absolute;
+    margin-top: -15rem;
+    margin-left: 10rem;
+    font-size: 3.5rem;
+    font-family: "Ame";
+    /* color:#af8d86; */
+    /* color:#a77e58; */
+    text-align: right;
+    color:#eee;
+    
+}
+
+.highlightinfobox {
+    /* background-color: #BA3F1D; */
+    background-color: #BD280A;
+    /* width:45%; */
+    padding:2rem 10rem 2rem 2rem;
+    position: relative;
+    float: right;
+    margin-right: 14rem;
+    margin-top: -9rem;
+    text-align:left;
+    color: #eee;
+    scale: 110%;
+}
+
+.paddingsikit {
+    padding-bottom: 2em;
+}

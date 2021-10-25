@@ -19,6 +19,7 @@ import UserAccount from './components/user_account/UserAccount';
 
 import { gsap, Power3 } from 'gsap'
 import EditAccountDetails from './components/user_account/EditAccountDetails';
+import Homescreen from './components/homepage/Homescreen';
 // import Footer from './components/Footer';
 
 
@@ -47,6 +48,7 @@ function App() {
         <main>
           <Switch>
             <Route exact path="/" component={ProductCatalogue} />
+            <Route exact path="/home" component={Homescreen} />
             <Route exact path="/product/:id" component={ProductDetail} />
             <Route path="/cart/:id?" component={ShoppingCart} />
             <Route path="/login" component={Login} />
