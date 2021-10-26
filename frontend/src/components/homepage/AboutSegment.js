@@ -4,37 +4,52 @@ import { Power2, ScrollTrigger } from 'gsap/all'
 
 const AboutSegment = () => {
 
-    const one = useRef()
+    const about = useRef()
     gsap.registerPlugin(ScrollTrigger);
     
     useLayoutEffect(() => {
         let tl = gsap.timeline({
             scrollTrigger: {
-                trigger: one.current,
-                markers: true,
+                trigger: about.current,
+                // markers: true,
                 start: "top center+=150",
-                end: "top 20%",
-                scrub: 1,
-                toggleActions: "restart none none none"
+                end: "top 10%",
+                scrub: 2,
+                toggleActions: "restart none reverse none"
             }
         });
+        // tl.fromTo(
+        //     one.current, {
+        //     autoAlpha: 0
+        //     // opacity: 0
+        // },{
+        //     duration: 1,
+        //     autoAlpha: 1,
+        //     // opacity: 1,
+        //     ease: Power2
+        // }
+        // );
         tl.fromTo(
-            one.current, {
-            autoAlpha: 0
-            // opacity: 0
+            about.current.querySelectorAll("div"), {
+            autoAlpha: 0,
+            y: 100,
+            // clipPath: "inset(0, 0, 0, 0)"
         },
             {
-                duration: 1,
                 autoAlpha: 1,
-                // opacity: 1,
+                y: 0,
+                // clipPath: "inset(0, 0, 100%, 100%)",
+                duration: 2,
+                stagger: 0.7,
                 ease: Power2
+                
             }
         );
         
-    }, [one])
+    }, [about])
 
     return (
-        <div className="aboutcontainer" ref={one}>
+        <div className="aboutcontainer" ref={about}>
             <div className="aboutinfo">
             <div className="about orange">About</div>
                 <div>Crafted thoughfully</div>
