@@ -5,7 +5,6 @@ const ProductHighlight1 = ({products}) => {
     return (
         <div className="high1container">
             <div className="vertical-center">
-            <div className="about">Collection Uno</div>
                 <div><img src={products[0].image} alt={products[0].name} className="highlight" /> </div>
                 <div className="rotatehighlight"> {products[0].name} </div>
 

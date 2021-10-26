@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useLayoutEffect, useRef } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import ErrorMessage from '../modals/ErrorMessage'
 import LoadingSpinner from '../modals/LoadingSpinner'
@@ -11,6 +11,8 @@ import ProductHighlight2 from './ProductHighlight2'
 import ProductHighlight3 from './ProductHighlight3'
 import ProductHighlight4 from './ProductHighlight4'
 import Footer from '../Footer'
+// import { gsap } from 'gsap';
+// import { Power2, ScrollTrigger } from 'gsap/all'
 
 const Homescreen = () => {
 
@@ -23,6 +25,30 @@ const Homescreen = () => {
         dispatch(listProducts({}));
     }, [dispatch])
 
+    // const one = useRef()
+    // // const two = useRef()
+    // // const three = useRef()
+    // // const four = useRef()
+    // // const five = useRef()
+    // // let tl = useRef()
+    
+    // gsap.registerPlugin(ScrollTrigger);
+    
+
+    // useLayoutEffect(() => {
+        
+    //     gsap.from(one.current, {
+    //         autoAlpha: 0,
+    //         scrollTrigger: {
+    //             trigger: one.current,
+    //             // start: "top center+=150",
+    //             // end: "top 50%",
+    //             // scrub: 1,
+    //             // toggleActions: "restart none none none"
+    //         },
+    //     })
+        
+    // }, [])
 
     return (
         <div>
@@ -30,8 +56,9 @@ const Homescreen = () => {
                 error ? <ErrorMessage variant="danger">{error}</ErrorMessage> :
                     <div>
                         <LandingPage products={products} />
-                        <AboutSegment />
-                        <div>
+                        <div><AboutSegment /></div>
+                        <div className="flex-contain">
+                        <div className="about just-title">Collection Uno</div>
                             <ProductHighlight1 products={products}/>
                             <ProductHighlight2 products={products}/>
                             <ProductHighlight3 products={products}/>

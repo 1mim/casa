@@ -16,6 +16,8 @@ import OrderDetails from './components/user_account/OrderDetails';
 import Register from './components/user_account/Register';
 import UserAccount from './components/user_account/UserAccount';
 
+import AnimatedCursor from "react-animated-cursor"
+
 
 import { gsap, Power3 } from 'gsap'
 import EditAccountDetails from './components/user_account/EditAccountDetails';
@@ -43,7 +45,14 @@ function App() {
   return (
     <Router>
       <div className="appear" ref={smooth}>
-       
+      <AnimatedCursor
+      innerSize={8}
+      outerSize={8}
+      color='40, 5, 10'
+      outerAlpha={0.2}
+      innerScale={0.7}
+      outerScale={5}
+    />
         <header><NavBar cartItems={cartItems} userInfo={userInfo}/></header>
         <main>
           <Switch>
