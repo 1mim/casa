@@ -13,7 +13,7 @@ const NavBar = ({ cartItems, userInfo }) => {
     
     return (
         <div className="grid-container row navbar">
-            <div>Menu</div>
+            <div><Link to="/store">Shop</Link></div>
             <div><Link to="/" className="logo" >CASA</Link></div>
    <div className="absolute"><Link to="/cart">Cart {cartItems.length > 0 && (
                 <span className="badge">{cartItems.length}</span>

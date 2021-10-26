@@ -37,7 +37,7 @@ const CartSubTotal = ({ cartItems, checkoutHandler }) => {
                         Checkout
                     </button>
                 
-                    <Link to ="/"> <div className="cont-browse"> Continue Browsing </div></Link>
+                    <Link to ="/store"> <div className="cont-browse"> Continue Browsing </div></Link>
         
         </div>
     )

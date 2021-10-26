@@ -56,8 +56,8 @@ function App() {
         <header><NavBar cartItems={cartItems} userInfo={userInfo}/></header>
         <main>
           <Switch>
-            <Route exact path="/" component={ProductCatalogue} />
-            <Route exact path="/home" component={Homescreen} />
+            <Route exact path="/" component={Homescreen} />
+            <Route exact path="/store" component={ProductCatalogue} />
             <Route exact path="/product/:id" component={ProductDetail} />
             <Route path="/cart/:id?" component={ShoppingCart} />
             <Route path="/login" component={Login} />
