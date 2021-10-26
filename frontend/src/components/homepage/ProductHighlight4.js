@@ -23,7 +23,7 @@ const ProductHighlight4 = ({ products }) => {
                 // pinSpacing: false,
                 onEnter: () => {
                     tl.fromTo(four.current, {
-                        xPercent: -100,
+                        xPercent: 100,
                         yPercent: 0,
                         autoAlpha: 0
                         
