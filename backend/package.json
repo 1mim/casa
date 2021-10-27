@@ -9,7 +9,7 @@
     "dev": "nodemon server.js",
     "data:import": "nodemon seederScript.js",
     "userdata:import": "nodemon seedUserScript.js",
-    "heroku-postbuild": "cd client/src && npm install && npm run build"
+    "heroku-postbuild": "cd frontend/src && npm install && npm run build"
   },
   "keywords": [],
   "author": "",
