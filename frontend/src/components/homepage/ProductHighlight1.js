@@ -1,54 +1,98 @@
 import React, { useLayoutEffect, useRef } from 'react'
 import { gsap } from 'gsap';
-import { Power2, ScrollTrigger } from 'gsap/all'
+import { Bounce, Power2, ScrollTrigger } from 'gsap/all'
 import { Link } from 'react-router-dom'
 
 const ProductHighlight1 = ({ products }) => {
  
     const one = useRef()
-    
     gsap.registerPlugin(ScrollTrigger);
 
     useLayoutEffect(() => {
         let tl = gsap.timeline({
             scrollTrigger: {
                 trigger: one.current,
-                // markers: true,
                 start: "top bottom+=150",
-                end: "top 20%",
-                scrub: 2,
-                // snap:true,
-                // toggleActions: "play none none reverse",
-                // pin: true,
-                // pinSpacing: false,
-                onEnter: () => {
-                    tl.fromTo(one.current, {
-                        xPercent: 100,
-                        yPercent: 0,
-                        autoAlpha: 0
-                        
-                    }, {
-                        xPercent: 0,
-                        yPercent: 0,
-                        autoAlpha:1,
-                        duration: 2,
-                        ease: Power2
-                    })
-                }
-                
+                end: "top 50%",
+                scrub: 3,
+                toggleActions: "restart none reverse reverse",
             }
         });
-          
-        
-    }, [one])
+        tl.fromTo(one.current, {
+            xPercent: 100,
+            yPercent: 0,
+            autoAlpha: 0
+            
+        }, {
+            xPercent: 0,
+            yPercent: 0,
+            autoAlpha: 1,
+            duration: 2,
+            ease: Power2
+        });
+                    
+    }, [])
+
+    //animating pic on hover
+    const hoverImage = ({ currentTarget }) => {
+        gsap.to(currentTarget, {
+            x: 20,
+            // scale: 1,
+            duration: 1,
+            ease: Bounce,
+        })
+    }
+
+    const hoverOut = ({ currentTarget }) => {
+        gsap.to(currentTarget, {
+            x: 0,
+            // scale: -1,
+            duration: 1,
+            ease: Bounce,
+        })
+    }
+
+    //animating text senget 
+    const hoverName = ({ currentTarget }) => {
+        gsap.to(currentTarget, {
+            y: 10,
+            duration: 1,
+            ease: Bounce,
+        })
+    }
+
+    const hoverOutName = ({ currentTarget }) => {
+        gsap.to(currentTarget, {
+            y: 0,
+            duration: 1,
+            ease: Bounce,
+        })
+    }
+
+    // animate the infobox
+    const hoverInfo = ({ currentTarget }) => {
+        gsap.to(currentTarget, {
+            padding: "2.5rem 10.5rem 2.5rem 2.5rem",
+            duration: 0.6,
+            ease: Bounce,
+        })
+    }
+
+    const hoverOutInfo = ({ currentTarget }) => {
+        gsap.to(currentTarget, {
+            padding: "2rem 10rem 2rem 2rem",
+            duration: 1,
+            ease: Bounce,
+        })
+    }
 
     return (
         <div className="high1container" ref={one}>
             <div className="vertical-center">
-                <div><img src={products[0].image} alt={products[0].name} className="highlight" /> </div>
-                <div className="rotatehighlight"> {products[0].name} </div>
+                <div><img src={products[0].image} alt={products[0].name} className="highlight" onMouseEnter={hoverImage} onMouseLeave={hoverOut}/> </div>
+                <div className="rotatehighlight" onMouseEnter={hoverName} onMouseLeave={hoverOutName}> {products[0].name} </div>
 
-                <div className="highlightinfobox">
+                <div className="highlightinfobox" onMouseEnter={hoverInfo} onMouseLeave={hoverOutInfo}>
                     <div className="producttype">{products[0].type}</div>
                     <div className="name" > {products[0].name} </div>
                     <div className="price" >${products[0].price.toFixed(2)}</div>
