@@ -9,12 +9,7 @@
     "dev": "nodemon server.js",
     "data:import": "nodemon seederScript.js",
     "userdata:import": "nodemon seedUserScript.js",
-    "build": "cd frontend && npm run build",
-    "install-client": "cd frontend && npm install",
-    "heroku-postbuild": "npm run install-frontend && npm run build",
-    "server": "nodemon server.js",
-    "develop": "concurrently --kill-others-on-fail \"npm run server\" \"npm run start --prefix frontend\"",
-    "start": "concurrently --kill-others-on-fail \"npm run server\" \"npm run start --prefix frontend\""
+    "heroku-postbuild": "cd client/src && npm install && npm run build"
   },
   "keywords": [],
   "author": "",

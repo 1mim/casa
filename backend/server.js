@@ -29,10 +29,14 @@ app.use((err, req, res, next) => {
 
 const PORT = process.env.PORT || 5000;
 
-app.use(express.static(path.resolve(__dirname, "./frontend/build")));
+if (process.env.NODE_ENV === 'production') {
+    // Serve any static files
+    app.use(express.static(path.join(__dirname, '../frontend/build')));
 
-app.get("*", function (req, res) {
-    res.sendFile(path.resolve(__dirname, "./frontend/build", "index.html"))
-});
+    // Handle React routing, return all requests to React app
+    app.get('*', function(req, res) {
+        res.sendFile(path.join(__dirname, '../frontend/build', 'index.html'));
+    });
+}
 
 app.listen(PORT, () => console.log(`Server running on ${PORT}`));
