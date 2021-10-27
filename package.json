@@ -1,9 +1,25 @@
-
-{"scripts": {
-  "start": "cd frontend/src && node app.js",
-  "test": "echo \"Error: no test specified\" && exit 1"
-},
+{
+  "name": "casa",
+  "version": "1.0.0",
+  "description": "Online Store for exclusive furniture and home interior brand, Casa",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon --watch backend --exec node --experimental-modules backend/server.js",
+    "dev": "nodemon server.js",
+    "heroku-postbuild": "cd frontend/src && npm install && npm run build"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "express-async-handler": "^1.1.4",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^6.0.10"
+  },
   "devDependencies": {
-    "eslint": "^8.0.0"
+    "nodemon": "^2.0.13"
   }
 }
