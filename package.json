@@ -4,7 +4,7 @@
   "description": "Online Store for exclusive furniture and home interior brand, Casa",
   "main": "index.js",
   "scripts": {
-    "start": "node server.js",
+    "start": "node app.js",
     "dev": "nodemon server.js",
     "heroku-postbuild": "cd frontend && npm install && npm run build"
   },
