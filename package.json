@@ -2,11 +2,11 @@
   "name": "casa",
   "version": "1.0.0",
   "description": "Online Store for exclusive furniture and home interior brand, Casa",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
-    "start": "node app.js",
+    "start": "nodemon server.js",
     "dev": "nodemon server.js",
-    "heroku-postbuild": "cd frontend && npm install && npm run build"
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix frontend && npm install && npm run build --prefix frontend"
   },
   "keywords": [],
   "author": "",
