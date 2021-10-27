@@ -4,8 +4,10 @@
   "description": "Online Store for exclusive furniture and home interior brand, Casa",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon --watch backend --exec node --experimental-modules backend/server.js",
-    "dev": "nodemon server.js",
+    "start": "node server.js",
+    "server": "nodemon server/server.js",
+    "client": "cd frontend && npm run start",
+    "dev": "concurrently --kill-others-on-fail \"npm run server\" \"npm run client\"",
     "heroku-postbuild": "cd frontend/src && npm install && npm run build"
   },
   "keywords": [],
@@ -20,6 +22,7 @@
     "mongoose": "^6.0.10"
   },
   "devDependencies": {
+    "concurrently": "^5.3.0",
     "nodemon": "^2.0.13"
   }
 }
