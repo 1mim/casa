@@ -1,6 +1,6 @@
 # CASA
 Exclusive Furniture and Home Interior | Online Store<br/>
-<a href="https://casa-lux.herokuapp.com/" target="_blank"><strong>View Live Website</strong></a>
+<a href="https://casa-lux.herokuapp.com/" target="_blank" rel="noopener noreferrer"><strong>View Live Website</strong></a>
 
 # Introduction
 <strong>CASA</strong> – <em>Italian for home</em> – is an exclusive furniture and home interior brand that just opened its very own <strong>online store</strong>. Debuting its first collection, Collection Uno, followers will be able to grab their hands on these exclusive items.
