@@ -66,9 +66,10 @@ max-width: 100%;
 .detImgItem {
     flex-basis: 800px;
     left: 0px;
-    margin-left: -10%;
+    margin-left: -3%;
     align-self: flex-start;
-    /* display: flex; */
+    /* display: flex;
+    position: relative; */
 }
 
 .detOfItem {

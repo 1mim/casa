@@ -34,7 +34,7 @@ const OrderConfirmed = (props) => {
             <div className="flex-container">
 
                 <div className="items-in-success">
-                    <img src="https://i.ibb.co/gZHQtDF/thanks-pic2.png" alt="" ref={image}style={{ maxWidth: "40%" }}/>
+                    <img src="https://i.ibb.co/sbTwLcb/Modern-dark-green-home-interior-with-brown-couch-and-pampas-in-wicker-basket-3d-render.jpg" alt="" ref={image}style={{ maxWidth: "40%" }}/>
                     
                     <div className="thanks-container" ref={thanks}>
                     <div className="order-confirmed"> Order is confirmed. </div>
