@@ -24,6 +24,7 @@ const Register = (props) => {
     if (password !== confirmPassword) {
       alert('Password and confirm password are not matched');
     } else {
+        e.preventDefault();
       dispatch(register(name, email, password))
     }
   }
